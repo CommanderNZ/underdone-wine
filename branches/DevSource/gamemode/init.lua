@@ -5,6 +5,7 @@ AddCSLuaFile("core/sh_resource.lua")
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("core/sharedfiles/json.lua")
 include("shared.lua")
+include("server_config.lua")
 include("core/sharedfiles/database/items/sh_items_base.lua")
 include("core/sh_resource.lua")
 
