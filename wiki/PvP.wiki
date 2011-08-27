@@ -8,7 +8,7 @@
 = Details =
 
  * File : <code>gamemode/serverfile/core/serverfile/sv_ai.lua</code>
-   * Function : <code>NpcAdjustDamage!() l.103</code>
+   * Function : <code>NpcAdjustDamage() l.103</code>
    _This function need to be adjusted as a new : PlayerAdjustDamage()(to adjust the damage to level)_
    * Function : <code>GM:OnNPCKilled() l.44</code>
    _This function need to be adjusted as a new : GM:PlayerDeath()(to adjust the xp to level and squads)_
