@@ -96,7 +96,7 @@ if SERVER then
 	function GM:LoadMapObjects()
 		local strFileName = "UnderDone/Maps/" .. game.GetMap() .. ".txt"
 		if !file.Exists(strFileName) then return end
-		local tblDecodedTable = glon.decode(file.Read(strFileName))
+		local tblDecodedTable = json.decode(file.Read(strFileName))
 		for _, SpawnPoint in pairs(tblDecodedTable.NPCSpawnPoints or {}) do
 			GAMEMODE:CreateSpawnPoint(SpawnPoint.Postion, SpawnPoint.Angle or Angle(0, 90, 0), SpawnPoint.NPC, SpawnPoint.Level, SpawnPoint.SpawnTime)
 		end
@@ -116,7 +116,7 @@ if SERVER then
 			WorldProp.Entity = nil
 			WorldProp.SpawnProp = nil
 		end
-		file.Write(strFileName, glon.encode(tblSaveTable))
+		file.Write(strFileName, json.encode(tblSaveTable))
 	end
 	
 	function GM:SpawnMapEntities()

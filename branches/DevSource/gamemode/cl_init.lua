@@ -1,5 +1,5 @@
 --------Includes---------
-require("glon")
+require("json")
 include('shared.lua')
 include('core/sharedfiles/database/items/sh_items_base.lua')
 include('core/sh_resource.lua')
