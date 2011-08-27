@@ -9,5 +9,28 @@ Player:NewGame()
 Player:LoadGame()
 
 Player:SaveGame()
+
+Player:SkillReset()
+
+Player:SearchQuestProp()
+
+Player:SearchWorldProp()
+
+Player:GiveExp
 ==Clientside functions==
+==Player===
+Player:FollowPlayer()
+
+Player:StopFollowing()
+
 ==Shared functions==
+===Player===
+Player:IsMelee()
+
+Player:IsDonator()
+
+Player:GetMaximumHealth()
+
+Player:GetMaxWeight()
+
+Player:GetArmorRating()
