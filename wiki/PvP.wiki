@@ -9,9 +9,9 @@
 
  * File : <code language="lua">gamemode/serverfile/core/serverfile/sv_ai.lua</code>
    * Function : <code language="lua">NpcAdjustDamage() l.103</code>
-   _This function need to be adjusted as a new : PlayerAdjustDamage()(to adjust the damage to level)_
+   _This function needs to be adjusted as a new : PlayerAdjustDamage()(to adjust the damage to level)_
    * Function : <code language="lua">GM:OnNPCKilled() l.44</code>
-   _This function need to be adjusted as a new : GM:PlayerDeath()(to adjust the xp to level and squads)_
+   _This function needs to be adjusted as a new : GM:PlayerDeath()(to adjust the xp to level and squads)_
 
  * Bug Expected :
   * There is obviously other functions who tell shits like <code>if targetent:IsPlayer() then return false end </code>
