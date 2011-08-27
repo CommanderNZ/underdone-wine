@@ -1,0 +1,12 @@
+=Player.LoadGame=
+|| *Syntax* || Player.LoadGame() ||
+|| *Return* || nill ||
+|| *Description* || Load and set information of the player on the player ||
+|| *Part of Library* || Player ||
+|| *Type* || Serverside ||
+
+==Examples==
+
+==Additional Notes==
+
+==See Also==
