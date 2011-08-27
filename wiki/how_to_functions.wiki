@@ -2,6 +2,8 @@
 
 ==Title name syntax : table_function==
 
+<img src="http://data.imagup.com/10/1129141401.png" />
+
 Argument optionnel entre crochet
 
 || *Syntax* || table.function( argument, ... ) ||
