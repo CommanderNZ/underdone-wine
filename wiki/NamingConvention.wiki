@@ -2,17 +2,17 @@
   * Capital letter for each words.
   * word are collapsed.
   Example : 
-  <code>local Variable
+  <code langage="lua">local Variable
 local MyVariable = false
 local TooLongVarNameOfDoom</code>
  * end of instruction
-  * *None* aka *no* <code>local Var = 0;</code>
+  * *None* aka *no* <code langage="lua">local Var = 0;</code>
  * functions name
   * No-capital letter on the first word.
   * Each words are collapsed.
   * Capital letter at the begin of each words.
   * Object Name act like variables.
-  Example:<code>local function()
+  Example:<code langage="lua">local function()
 end
 local myFunction()
 end
@@ -23,5 +23,13 @@ end
 local EntityInQuestion:thefunctionName()
 end</code>
  * Arrays act like variables
- Example: <code>local Array = {}
+ Example: <code langage="lua">local Array = {}
 Array.key = 12</code>
+* Coments
+ * In line defined by <code langage="lua">--</code>
+ Example :<code langage="lua">-- Some Commented line</code>
+ * Multi-line comments <code langage="lua">--[[ ... ]]--</code>
+ Example :<code langage="lua">--[[ some
+multi
+line
+comment]]--</code>
