@@ -34,7 +34,7 @@ function Player:LoadGame()
 	local Data = {}
 	for name, stat in pairs(GAMEMODE.DataBase.Stats) do self:SetStat(name, stat.Default) end
 	local tblDecodedTable = {}
-	local strSteamID = string.Replace(self:SteamID(), ":", "!")
+	local strSteamID = string.Replace(self:SteamID(), ":", "!") // A viré !
 	if strSteamID != "STEAM_ID_PENDING" then
 		local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 		if file.Exists(strFileName) then
