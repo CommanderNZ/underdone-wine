@@ -1,0 +1,27 @@
+ * Var name
+  * Capital letter for each words.
+  * word are collapsed.
+  Example : 
+  <code>local Variable
+local MyVariable = false
+local TooLongVarNameOfDoom</code>
+ * end of instruction
+  * *None* aka *no* <code>local Var = 0;</code>
+ * functions name
+  * No-capital letter on the first word.
+  * Each words are collapsed.
+  * Capital letter at the begin of each words.
+  * Object Name act like variables.
+  Example:<code>local function()
+end
+local myFunction()
+end
+local arandomFunction(Var, OtherVar)
+end
+Meta:function()
+end
+local EntityInQuestion:thefunctionName()
+end</code>
+ * Arrays act like variables
+ Example: <code>local Array = {}
+Array.key = 12</code>
