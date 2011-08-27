@@ -2,8 +2,10 @@
 
 ==Title name syntax : table_function==
 
+Argument optionnel entre crochet
+
 || *Syntax* || table.function( argument, ... ) ||
-|| *Return* || nill,[optional argument], string, number, ... ||
+|| *Return* || nill, string, number, ... ||
 || *Description* || function description ||
 || *Part of Library* || Table part ||
 || *Type* || Serverside, Clientside or Shared ||
