@@ -1,13 +1,13 @@
  * Var name
   * Capital letter for each words.
-  * word are collapsed.
+  * Words are collapsed.
   Example : 
   <code langage="lua">local Variable
 local MyVariable = false
 local TooLongVarNameOfDoom</code>
- * end of instruction
-  * *None* alias *no* <code langage="lua">local Var = 0;</code>
- * functions name
+ * End of instruction
+  * *None* aka *no* <code langage="lua">local Var = 0;</code>
+ * Functions name
   * No-capital letter on the first word.
   * Each words are collapsed.
   * Capital letter at the begin of each words.
@@ -25,7 +25,7 @@ end</code>
  * Arrays act like variables
  Example: <code langage="lua">local Array = {}
 Array.key = 12</code>
-* Coments
+* Comments
  * In line defined by <code langage="lua">--</code>
  Example :<code langage="lua">-- Some Commented line</code>
  * Multi-line comments <code langage="lua">--[[ ... ]]--</code>
