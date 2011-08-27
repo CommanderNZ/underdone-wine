@@ -4,7 +4,7 @@
  * ~~Change Glon by Json~~ *Done*
  * Character maker system
  * [PvP Player vs Player (PVP) system]
- * Multi-language (english, french)
+ * [Multi_lang Multi-language (english, french)]
  * Add magic
  * Add new quests, items and NPC
  * [gui_remade Refresh interfaces]
