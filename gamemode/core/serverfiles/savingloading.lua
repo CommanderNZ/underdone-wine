@@ -38,7 +38,7 @@ function Player:LoadGame()
 	if strSteamID != "STEAM_ID_PENDING" then
 		local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 		if file.Exists(strFileName) then
-			tblDecodedTable = glon.decode(file.Read(strFileName))
+			tblDecodedTable = json.decode(file.Read(strFileName))
 		else
 			self:NewGame()
 		end
@@ -99,7 +99,7 @@ function Player:SaveGame()
 	for strQuest, tblInfo in pairs(self.Data.Quests or {}) do
 		if tblInfo.Done then
 			tblSaveTable.Quests[strQuest] = {Done = true}
-		else
+		else 
 			tblSaveTable.Quests[strQuest] = tblInfo
 		end
 	end	
@@ -115,7 +115,7 @@ function Player:SaveGame()
 	if strSteamID != "STEAM_ID_PENDING" then
 		local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 		tblSaveTable.Exp = self:GetNWInt("exp")
-		file.Write(strFileName, glon.encode(tblSaveTable))
+		file.Write(strFileName, json.encode(tblSaveTable))
 	end
 end
 
