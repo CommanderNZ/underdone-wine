@@ -7,5 +7,5 @@
  * Multi-language (english, french)
  * Add magic
  * Add new quests, items and NPC
- * Refresh interfaces
+ * [gui_remade Refresh interfaces]
  * Fix some bugs...
