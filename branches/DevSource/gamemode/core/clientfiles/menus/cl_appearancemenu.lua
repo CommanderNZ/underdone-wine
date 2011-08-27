@@ -1,7 +1,20 @@
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //  _    _           _              _                   __          ___              //
+    // | |  | |         | |            | |                  \ \        / (_)             //
+    // | |  | |_ __   __| | ___ _ __ __| | ___  _ __   ___   \ \  /\  / / _ _ __   ___   //
+    // | |  | | '_ \ / _` |/ _ \ '__/ _` |/ _ \| '_ \ / _ \   \ \/  \/ / | | '_ \ / _ \  //
+    // | |__| | | | | (_| |  __/ | | (_| | (_) | | | |  __/    \  /\  /  | | | | |  __/  //
+    //  \____/|_| |_|\__,_|\___|_|  \__,_|\___/|_| |_|\___|     \/  \/   |_|_| |_|\___|  //
+    //                                                                                   //
+    //       Last edit : Batman06                                                        //
+    //                                                                                   //
+    ///////////////////////////////////////////////////////////////////////////////////////
+	
 GM.AppearanceMenu = nil
 PANEL = {}
 
 function PANEL:Init()
+
 	self.Frame = CreateGenericFrame("Appearance Menu", false, false)
 	
 	self.LeftList = CreateGenericList(self.Frame, 10, 1, 0)
@@ -10,15 +23,18 @@ function PANEL:Init()
 	self.Frame.btnClose = vgui.Create("DSysButton", self.Frame)
 	self.Frame.btnClose:SetType("close")
 	self.Frame.btnClose.DoClick = function(pnlPanel)
+	
 		GAMEMODE.AppearanceMenu.Frame:Close()
 		GAMEMODE.AppearanceMenu = nil
+		
 	end
 	
 	self.Frame.btnClose.Paint = function()
+	
 		jdraw.QuickDrawPanel(clrGray, 20,20, self.Frame.btnClose:GetWide() - 1, self.Frame.btnClose:GetTall() - 1)
+		
 	end
 	
-
 	self.ViewPlayerModel = vgui.Create( "DModelPanel" )
 	self.ViewPlayerModel:SetModel( LocalPlayer():GetModel() )
 	self.ViewPlayerModel:SetAnimated(ACT_WALK)
@@ -27,20 +43,28 @@ function PANEL:Init()
 	self.RightList:AddItem(self.ViewPlayerModel)
 
 	for _,Model in pairs(GAMEMODE.PlayerModel or {}) do
+	
 		local PlayerModel = vgui.Create("SpawnIcon")
+		
 		PlayerModel:SetModel(Model[1])
 		PlayerModel.OnMousePressed = function()
+		
 			RunConsoleCommand("UD_UserChangeModel", Model[1])
 			timer.Simple(0.25, function() self.ViewPlayerModel:SetModel(LocalPlayer():GetModel()) end)
+			
 		end
+		
 		self.LeftList:AddItem(PlayerModel)
+		
 	end
 	
 	self.Frame:MakePopup()
 	self:PerformLayout()
+	
 end
 
 function PANEL:PerformLayout()
+
 	self.Frame:SetPos(self:GetPos())
 	self.Frame:SetSize(self:GetSize())
 	self.Frame.btnClose:SetPos(self.Frame:GetWide() - 5, 0)
@@ -59,11 +83,16 @@ end
 vgui.Register("Appearancemenu", PANEL, "Panel")
 
 concommand.Add("UD_OpenAppearanceMenu", function(ply, command, args)
+
 	local npc = ply:GetEyeTrace().Entity
 	local tblNPCTable = NPCTable(npc:GetNWString("npc"))
+	
 	if !ValidEntity(npc) or !tblNPCTable or !tblNPCTable.Appearance then return end
+	
 	//if ply:GetPos():Distance(npc:GetPos()) > 100 then return end
+	
 	GAMEMODE.AppearanceMenu = GAMEMODE.AppearanceMenu or vgui.Create("Appearancemenu")
 	GAMEMODE.AppearanceMenu:SetSize(520, 459)
 	GAMEMODE.AppearanceMenu:Center()
+	
 end)
