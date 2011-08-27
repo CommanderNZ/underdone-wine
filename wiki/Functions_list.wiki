@@ -4,13 +4,13 @@
 
 ==Servside functions==
 ===Player===
-[Player_NewGame Player.NewGame]
+[Player_NewGame Player.NewGame()]
 
-[Player_LoadGame Player.LoadGame]
+[Player_LoadGame Player.LoadGame()]
 
 Player.SaveGame
 
-[Player_SkillReset Player.SkillReset]
+[Player_SkillReset Player.SkillReset()]
 
 Player.SearchQuestProp
 
@@ -18,7 +18,7 @@ Player.SearchWorldProp
 
 Player.GiveExp
 
-[Player_RemoveItem Player.RemoveItem]
+[Player_RemoveItem Player.RemoveItem()]
 
 ==Clientside functions==
 ==Player===
@@ -38,4 +38,4 @@ Player.GetMaxWeight
 
 Player.GetArmorRating
 
-[Player_CreateNotification Player.CreateNotification]
+[Player_CreateNotification Player.CreateNotification()]
