@@ -4,9 +4,14 @@
 || *Description* || Set the player variables on new player ||
 || *Part of Library* || Player ||
 || *Type* || Serverside ||
+|| *File* || core\serverfiles\savingloading.lua ||
 
 ==Examples==
 
 ==Additional Notes==
 
 ==See Also==
+
+[Player_LoadGame Player.LoadGame()]
+
+[Player_SaveGame Player.SaveGame()]
