@@ -24,7 +24,7 @@ local EntityInQuestion:thefunctionName()
 end</code>
  * Arrays act like variables
  Example: <code langage="lua">local Array = {}
-Array.key = 12</code>
+Array.Key = 12</code>
 * Comments
  * In line defined by <code langage="lua">--</code>
  Example :<code langage="lua">-- Some Commented line</code>
