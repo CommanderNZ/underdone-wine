@@ -1,0 +1,32 @@
+#summary One-sentence summary of this page.
+
+= Commiter =
+ * Alexandre.sandros
+Add your content here.
+
+
+= Details =
+== SQL Scheme ==
+<table border=1>
+	<tr>
+		<td>*Name*</td><td>Id</td><td>Sid</td><td>Inventory</td><td>Bank</td><td>Quests</td><td>friends</td><td>Exp</td>
+	</tr>
+	<tr>
+		<td>*Type*</td><td>int</td><td>varchar 30</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>int</td>
+	</tr>
+	<tr>
+		<td>*Variable*</td><td>none(auto increment)</td><td><code>string.Replace(ply:SteamID(), ":", "!")</code></td><td><code>ply.Data.Inventory</code></td><td><code>ply.Data.Bank</code></td><td><code>ply.Data.Quests</code></td><td><code>ply.Data.Friends</code></td><td><code>ply:GetNWInt("exp")</code></td>
+	</tr>
+</table>
+
+ * File : <code>gamemode/serverfile/core/serverfile/savingloading.lua</code>
+  * Functions to rebuild
+   * <code>meta:LoadGame() l.31</code> 
+   * <code>meta:SaveGame() l.84</code> 
+*All Queries should be valid MySQL Queries*
+
+ * Functions to add
+  * <code>DB.send(table)</code>
+  * <code>DB.get(table)</code>
+
+_There should be DB.send and DB.get functions for all the SQL methods, only one will be loaded depends on whitch type of saving is chosen by the gamemode config file._
