@@ -162,6 +162,6 @@ if CLIENT then
 		local strIncomingInfo = usrMsg:ReadString()
 		--print(string.len(strQuest .. strIncomingInfo))
 		--print(strQuest .. strIncomingInfo)
-		LocalPlayer():UpdateQuest(strQuest, Json.decode(strIncomingInfo))
+		LocalPlayer():UpdateQuest(strQuest, Json.Decode(strIncomingInfo))
 	end)
 end
