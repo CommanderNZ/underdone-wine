@@ -13,18 +13,18 @@
 		<td>*Type*</td><td>int</td><td>varchar 30</td><td>varchar 25</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>int</td>
 	</tr>
 	<tr>
-		<td>*Variable*</td><td>none(auto increment)</td><td><code>ply:SteamID()</code></td><td><code>ply:Nick()</code></td><td><code>ply.Data.Inventory</code></td><td><code>ply.Data.Bank</code></td><td><code>ply.Data.Quests</code></td><td><code>ply.Data.Friends</code></td><td><code>ply:GetNWInt("exp")</code></td>
+		<td>*Variable*</td><td>none(auto increment)</td><td><code langage="lua">ply:SteamID()</code></td><td><code langage="lua">ply:Nick()</code></td><td><code langage="lua">ply.Data.Inventory</code></td><td><code langage="lua">ply.Data.Bank</code></td><td><code langage="lua">ply.Data.Quests</code></td><td><code langage="lua">ply.Data.Friends</code></td><td><code langage="lua">ply:GetNWInt("exp")</code></td>
 	</tr>
 </table>
 
- * File : <code>gamemode/serverfile/core/serverfile/savingloading.lua</code>
+ * File : <code langage="lua">gamemode/serverfile/core/serverfile/savingloading.lua</code>
   * Functions to rebuild
-   * <code>meta:LoadGame() l.31</code> 
-   * <code>meta:SaveGame() l.84</code> 
+   * <code langage="lua">meta:LoadGame() l.31</code> 
+   * <code langage="lua">meta:SaveGame() l.84</code> 
 *All Queries should be valid MySQL Queries*
 
  * Functions to add
-  * <code>DB.send(table)</code>
-  * <code>DB.get(table)</code>
+  * <code langage="lua">DB.send(table)</code>
+  * <code langage="lua">DB.get(table)</code>
 
 _There should be DB.send and DB.get functions for all the SQL methods, only one will be loaded depends on whitch type of saving is chosen by the gamemode config file._
