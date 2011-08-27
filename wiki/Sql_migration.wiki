@@ -13,7 +13,7 @@
 		<td>*Type*</td><td>int</td><td>varchar 30</td><td>varchar 25</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>int</td>
 	</tr>
 	<tr>
-		<td>*Variable*</td><td>none(auto increment)</td><td><code>string.Replace(ply:SteamID(), ":", "!")</code></td><td><code>ply:Nick()</code></td><td><code>ply.Data.Inventory</code></td><td><code>ply.Data.Bank</code></td><td><code>ply.Data.Quests</code></td><td><code>ply.Data.Friends</code></td><td><code>ply:GetNWInt("exp")</code></td>
+		<td>*Variable*</td><td>none(auto increment)</td><td><code>ply:SteamID()</code></td><td><code>ply:Nick()</code></td><td><code>ply.Data.Inventory</code></td><td><code>ply.Data.Bank</code></td><td><code>ply.Data.Quests</code></td><td><code>ply.Data.Friends</code></td><td><code>ply:GetNWInt("exp")</code></td>
 	</tr>
 </table>
 
