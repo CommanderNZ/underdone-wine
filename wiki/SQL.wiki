@@ -9,11 +9,14 @@ Lien pour les library mysql :
 [http://www.facepunch.com/threads/933647-Gm_MySql-v1.0-OO-edition.]
 
 Préférable de prendre Tmysql, librairie plus easy 
+
 [http://gmodmodules.googlecode.com/svn/trunk/gm_tmysql3_boost/]
 
 [http://gmodmodules.googlecode.com/svn/trunk/gm_tmysql3/]
 
 [http://gmodmodules.googlecode.com/svn/trunk/gm_tmysql2/]
+
+
 
 
 
