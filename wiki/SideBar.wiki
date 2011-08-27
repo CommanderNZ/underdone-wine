@@ -1,5 +1,6 @@
  * [Tasks]
  * [bugs Bugs]
  * [Functions_list Functions list]
+ * [NavingeConvention]
  * *How To*
   * [how_to_functions How to add function on wiki]
