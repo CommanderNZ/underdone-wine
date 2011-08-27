@@ -4,13 +4,14 @@
 || *Description* || Reset skill for 1000 dollars ||
 || *Part of Library* || Player ||
 || *Type* || Serverside ||
+|| *File* || \core\sharedfiles\sh_player_ex.lua ||
 
 ==Examples==
 {{{
 Entity(1):SkillReset()
 }}}
 ==Additional Notes==
-This function execute Player.SaveGame
+This function execute [Player_SaveGame Player.SaveGame]
 ==See Also==
 Player.SetSkill
 
