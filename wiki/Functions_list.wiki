@@ -17,6 +17,8 @@ Player:SearchQuestProp
 Player:SearchWorldProp
 
 Player:GiveExp
+
+Player.RemoveItem
 ==Clientside functions==
 ==Player===
 Player:FollowPlayer
