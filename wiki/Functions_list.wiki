@@ -6,7 +6,7 @@
 ===Player===
 [Player_NewGame Player.NewGame]
 
-Player.LoadGame
+[Player_LoadGame Player.LoadGame]
 
 Player.SaveGame
 
