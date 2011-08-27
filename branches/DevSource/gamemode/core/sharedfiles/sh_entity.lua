@@ -1,27 +1,47 @@
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //  _    _           _              _                   __          ___              //
+    // | |  | |         | |            | |                  \ \        / (_)             //
+    // | |  | |_ __   __| | ___ _ __ __| | ___  _ __   ___   \ \  /\  / / _ _ __   ___   //
+    // | |  | | '_ \ / _` |/ _ \ '__/ _` |/ _ \| '_ \ / _ \   \ \/  \/ / | | '_ \ / _ \  //
+    // | |__| | | | | (_| |  __/ | | (_| | (_) | | | |  __/    \  /\  /  | | | | |  __/  //
+    //  \____/|_| |_|\__,_|\___|_|  \__,_|\___/|_| |_|\___|     \/  \/   |_|_| |_|\___|  //
+    //                                                                                   //
+    //       Last edit : Sandros	                                                     //
+    //                                                                                   //
+    ///////////////////////////////////////////////////////////////////////////////////////
+	
 local ENT = FindMetaTable("Entity")
 
+
 function ENT:IsBuilding()
+
 	if self:GetClass() ==  "prop_physics" then return true end
 	return false
 end
 
 function ENT:IsPet()
+
 	if self:IsNPC() && self:GetOwner() && self:GetOwner():IsPlayer() then
+	
 		return true
 	end
 	return false
 end
 
 function ENT:Idle()
+
 	self:SetNPCState( NPC_STATE_IDLE )
 	if self:IsCurrentSchedule( SCHED_FORCED_GO ) then
+	
 		self:SetSchedule( IDLE_STAND )
 	end
 	if ValidEntity(self:GetEnemy()) then
+	
 		self:SetEnemy( NullEntity() )
 		self:SetTarget( NullEntity() )
 	end
 	if self:IsFollowing() then
+	
 		self.IsFollowing = false
 	end
 	self:StopMoving()
@@ -29,8 +49,11 @@ function ENT:Idle()
 end
 
 function ENT:IsIdle()
+
 	if self:GetNPCState() == NPC_STATE_IDLE && !self:GetEnemy() then
+	
 		if self:IsCurrentSchedule( IDLE_STAND )  then
+		
 			return true
 		end
 	end
@@ -38,6 +61,7 @@ function ENT:IsIdle()
 end
 
 function ENT:Follow(Ent)
+
 	self:Idle()
 	self:SetLastPosition( Ent:GetPos() + Vector(math.random(10,30),math.random(10,30),0) )
 	self:SetSchedule( SCHED_FORCED_GO )
@@ -45,22 +69,29 @@ function ENT:Follow(Ent)
 end
 
 function ENT:IsFollowing()
+
 	if self.IsFollowing then
+	
 		return true
 	end
+	
 	return false
 end
 
 function ENT:ReturnSpawn()
+
 	self:Idle()
 	if self.Position then
+	
 		self:SetLastPosition( self.Position )
 		self:SetSchedule( SCHED_FORCED_GO )
 	end
 end
 
 function ENT:AttackPos(VecGoto)
+
 	if VecGoto then
+	
 		self:SetNPCState( NPC_STATE_COMBAT )
 		self:SetLastPosition( VecGoto )
 		self:SetSchedule( SCHED_FORCED_GO_RUN )
@@ -68,6 +99,7 @@ function ENT:AttackPos(VecGoto)
 end
 
 function ENT:AttackEnemy(Enemy)
+
 	self:SetEnemy( Enemy )
 	self:SetNPCState( NPC_STATE_COMBAT )
 	self:SetLastPosition( Enemy:GetPos() )
@@ -75,6 +107,7 @@ function ENT:AttackEnemy(Enemy)
 end
 
 function ENT:IsBlocked()
+
 	if ValidEntity(self:GetBlockingEntity()) && self:GetBlockingEntity()then
 		return self:GetBlockingEntity()
 	end
@@ -82,17 +115,24 @@ function ENT:IsBlocked()
 end
 
 if SERVER then
+
 	function ENT:SetServerScale(vecScale)
+	
 		for _, ply in pairs(player.GetAll()) do
+		
 			ply:ConCommand("UD_SetEtityScale " .. self:EntIndex() .. " " .. StringatizeVector(vecScale))
 		end
 	end
 end
 if CLIENT then
+
 	concommand.Add("UD_SetEtityScale", function(ply, command, args)
+	
 		local entEtity = ents.GetByIndex(args[1])
 		local vecScale = VectortizeString(args[2])
+		
 		if ValidEntity(entEtity) && vecScale then
+		
 			entEtity:SetModelScale(vecScale)
 		end
 	end)

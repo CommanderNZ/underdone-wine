@@ -1,4 +1,17 @@
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //  _    _           _              _                   __          ___              //
+    // | |  | |         | |            | |                  \ \        / (_)             //
+    // | |  | |_ __   __| | ___ _ __ __| | ___  _ __   ___   \ \  /\  / / _ _ __   ___   //
+    // | |  | | '_ \ / _` |/ _ \ '__/ _` |/ _ \| '_ \ / _ \   \ \/  \/ / | | '_ \ / _ \  //
+    // | |__| | | | | (_| |  __/ | | (_| | (_) | | | |  __/    \  /\  /  | | | | |  __/  //
+    //  \____/|_| |_|\__,_|\___|_|  \__,_|\___/|_| |_|\___|     \/  \/   |_|_| |_|\___|  //
+    //                                                                                   //
+    //       Last edit : Sandros	                                                     //
+    //                                                                                   //
+    ///////////////////////////////////////////////////////////////////////////////////////
+
 if CLIENT then
+
 	local tblIndacators = {}
 	local intLifeTime = 4
 	local intFadeRate = 1
@@ -6,20 +19,25 @@ if CLIENT then
 	local intFriction = 1.1
 	
 	local function DrawIndacators()
+	
 		for _, tblInfo in pairs(tblIndacators) do
+		
 			local posIndicatorPos = tblInfo.Position:ToScreen()
 			local clrDrawColor = tblInfo.Color
 			local clrDrawColorBoarder = Color(clrDrakGray.r, clrDrakGray.g, clrDrakGray.b, clrDrawColor.a)
 			draw.SimpleTextOutlined(tblInfo.String, "Trebuchet24", posIndicatorPos.x, posIndicatorPos.y, clrDrawColor, 1, 1, 1, clrDrawColorBoarder)
+			
 			tblInfo.Color.a = math.Clamp(tblInfo.Color.a - intFadeRate, 0, 255) --Apply Fade
 			tblInfo.Velocity.z = tblInfo.Velocity.z - intGravity --Apply Gravity
 			tblInfo.Velocity = tblInfo.Velocity / intFriction --Apply Friction
 			tblInfo.Position = tblInfo.Position + tblInfo.Velocity --Set Postion based on Velocity
 		end
 	end
+	
 	hook.Add("HUDPaint", "DrawIndacators", DrawIndacators)
 
 	function GM:AddIndacator(tblInfo)
+	
 		table.insert(tblIndacators, 1, tblInfo)
 		timer.Simple(intLifeTime, function() table.remove(tblIndacators, #tblIndacators) end)
 	end
@@ -36,14 +54,21 @@ if CLIENT then
 end
 
 if SERVER then
+
 	local Player = FindMetaTable("Player")
+	
 	function Player:CreateIndacator(strMessage, vecPosition, strColor, boolSendAll)
+	
 		local strSendColor = strColor or "white"
 		local strCommand = "UD_AddDamageIndacator " .. strMessage .. " " .. StringatizeVector(vecPosition) .. " " .. strSendColor
 		self:ConCommand(strCommand)
+		
 		if boolSendAll then
+		
 			for _, ply in pairs(player.GetAll()) do
+			
 				if self != ply && ply:GetPos():Distance(self:GetPos()) < 200 then
+				
 					ply:ConCommand(strCommand)
 				end
 			end
