@@ -1,0 +1,17 @@
+=Le SQL=
+
+Il va falloir faire simple comme le darkRP. Donc par défaut il utilise 
+sqllite. SI il veut utilisé MYSQL il aura juste à modifié le fichier config.
+
+==Source==
+Lien pour les library mysql :
+
+[http://www.facepunch.com/threads/933647-Gm_MySql-v1.0-OO-edition.]
+
+Sqllite déjà implanté dans GMOD
+
+==Pour commencer==
+
+Donc il faut crée les tables directement en sql (if exist).
+
+il va falloir aussi penser pour la transmission entre sqllite et mysql, car les commandes sont différente ? 
