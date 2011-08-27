@@ -65,14 +65,14 @@ if SERVER then
 	function GM:LoadAuctions()
 		local strFileName = "UnderDone/Auctions.txt"
 		if file.Exists(strFileName) then
-			GAMEMODE.Auctions = json.decode(file.Read(strFileName))
+			GAMEMODE.Auctions = Json.decode(file.Read(strFileName))
 		end
 	end
 
 	function GM:SaveAuctions()
 		local strFileName = "UnderDone/Auctions.txt"
 		--PrintTable(GAMEMODE.Auctions)
-		file.Write(strFileName, json.encode(GAMEMODE.Auctions))
+		file.Write(strFileName, Json.encode(GAMEMODE.Auctions))
 	end
 	
 	function GM:TimerUpdateAuctions()
