@@ -7,13 +7,13 @@
 == SQL Scheme ==
 <table border=1>
 	<tr>
-		<td>*Name*</td><td>Id</td><td>Sid</td><td>Inventory</td><td>Bank</td><td>Quests</td><td>friends</td><td>Exp</td>
+		<td>*Name*</td><td>Id</td><td>Sid</td><td>Name</td><td>Inventory</td><td>Bank</td><td>Quests</td><td>friends</td><td>Exp</td>
 	</tr>
 	<tr>
-		<td>*Type*</td><td>int</td><td>varchar 30</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>int</td>
+		<td>*Type*</td><td>int</td><td>varchar 30</td><td>varchar 25</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>TEXT</td><td>int</td>
 	</tr>
 	<tr>
-		<td>*Variable*</td><td>none(auto increment)</td><td><code>string.Replace(ply:SteamID(), ":", "!")</code></td><td><code>ply.Data.Inventory</code></td><td><code>ply.Data.Bank</code></td><td><code>ply.Data.Quests</code></td><td><code>ply.Data.Friends</code></td><td><code>ply:GetNWInt("exp")</code></td>
+		<td>*Variable*</td><td>none(auto increment)</td><td><code>string.Replace(ply:SteamID(), ":", "!")</code></td><td><code>ply:Nick()</code></td><td><code>ply.Data.Inventory</code></td><td><code>ply.Data.Bank</code></td><td><code>ply.Data.Quests</code></td><td><code>ply.Data.Friends</code></td><td><code>ply:GetNWInt("exp")</code></td>
 	</tr>
 </table>
 
