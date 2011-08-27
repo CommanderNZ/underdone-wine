@@ -4,39 +4,39 @@
 
 ==Servside functions==
 ===Player===
-[Player_NewGame Player:NewGame]
+[Player_NewGame Player.NewGame]
 
-Player:LoadGame
+Player.LoadGame
 
-Player:SaveGame
+Player.SaveGame
 
-Player:SkillReset
+Player.SkillReset
 
-Player:SearchQuestProp
+Player.SearchQuestProp
 
-Player:SearchWorldProp
+Player.SearchWorldProp
 
-Player:GiveExp
+Player.GiveExp
 
-Player:RemoveItem
+Player.RemoveItem
 
 ==Clientside functions==
 ==Player===
-Player:FollowPlayer
+Player.FollowPlayer
 
-Player:StopFollowing
+Player.StopFollowing
 
 ==Shared functions==
 ===Player===
-Player:IsMelee
+Player.IsMelee
 
-Player:IsDonator
+Player.IsDonator
 
-Player:GetMaximumHealth
+Player.GetMaximumHealth
 
-Player:GetMaxWeight
+Player.GetMaxWeight
 
-Player:GetArmorRating
+Player.GetArmorRating
 
 
-Player:CreateNotification
+Player.CreateNotification
