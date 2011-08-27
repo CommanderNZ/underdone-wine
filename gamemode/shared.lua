@@ -28,54 +28,120 @@ GM.AuctionsPerPage = 20
 Register = {}
 GM.DataBase = {}
 
+-- DATABASE ITEM ----
+
 GM.DataBase.Items = {}
-function Register.Item(tblItem) GM.DataBase.Items[tblItem.Name] = tblItem end
-function ItemTable(strItem) return GAMEMODE.DataBase.Items[strItem] end
+
+function Register.Item(tblItem)
+	GM.DataBase.Items[tblItem.Name] = tblItem end
+	
+function ItemTable(strItem) 
+	return GAMEMODE.DataBase.Items[strItem] end
+
+-- DATABASE SLOTS ----
 
 GM.DataBase.Slots = {}
-function Register.Slot(tblItem) GM.DataBase.Slots[tblItem.Name] = tblItem end
-function SlotTable(strSlot) return GAMEMODE.DataBase.Slots[strSlot] end
+
+function Register.Slot(tblItem) 
+	GM.DataBase.Slots[tblItem.Name] = tblItem end
+	
+function SlotTable(strSlot) 
+	return GAMEMODE.DataBase.Slots[strSlot] end
+
+-- DATABASE EQUIPMENT SETS ----
 
 GM.DataBase.EquipmentSets = {}
-function Register.EquipmentSet(tblEquipmentSet) GM.DataBase.EquipmentSets[tblEquipmentSet.Name] = tblEquipmentSet end
-function EquipmentSetTable(strEquipmentSet) return GAMEMODE.DataBase.EquipmentSets[strEquipmentSet] end
+
+function Register.EquipmentSet(tblEquipmentSet)
+	GM.DataBase.EquipmentSets[tblEquipmentSet.Name] = tblEquipmentSet end
+	
+function EquipmentSetTable(strEquipmentSet) 
+	return GAMEMODE.DataBase.EquipmentSets[strEquipmentSet] end
+
+-- DATABASE EQUIPMENT SETS ----
 
 GM.DataBase.Stats = {}
+
 local intStatIndex = 1
+
 function Register.Stat(tblItem)
+
 	GM.DataBase.Stats[tblItem.Name] = tblItem
 	GM.DataBase.Stats[tblItem.Name].Index = intStatIndex
 	intStatIndex = intStatIndex + 1
 end
-function StatTable(strStat) return GAMEMODE.DataBase.Stats[strStat] end
 
+function StatTable(strStat)
+
+	return GAMEMODE.DataBase.Stats[strStat] end
+
+-- DATABASE NPCs ----
+	
 GM.DataBase.NPCs = {}
-function Register.NPC(tblItem) GM.DataBase.NPCs[tblItem.Name] = tblItem end
-function NPCTable(strNPC) return GAMEMODE.DataBase.NPCs[strNPC] end
+
+function Register.NPC(tblItem) 
+	GM.DataBase.NPCs[tblItem.Name] = tblItem end
+	
+function NPCTable(strNPC) 
+	return GAMEMODE.DataBase.NPCs[strNPC] end
+
+-- DATABASE SHOPS ----
 
 GM.DataBase.Shops = {}
-function Register.Shop(tblShop) GM.DataBase.Shops[tblShop.Name] = tblShop end
-function ShopTable(strShop) return GAMEMODE.DataBase.Shops[strShop] end
+
+function Register.Shop(tblShop) 
+	GM.DataBase.Shops[tblShop.Name] = tblShop end
+	
+function ShopTable(strShop) 
+	return GAMEMODE.DataBase.Shops[strShop] end
+
+-- DATABASE QUESTS ----
 
 GM.DataBase.Quests = {}
-function Register.Quest(tblQuest) GM.DataBase.Quests[tblQuest.Name] = tblQuest end
-function QuestTable(strQuest) return GAMEMODE.DataBase.Quests[strQuest] end
+
+function Register.Quest(tblQuest) 
+	GM.DataBase.Quests[tblQuest.Name] = tblQuest end
+	
+function QuestTable(strQuest) return 
+	GAMEMODE.DataBase.Quests[strQuest] end
+
+-- DATABASE SKILLS ----
 
 GM.DataBase.Skills = {}
-function Register.Skill(tblSkill) GM.DataBase.Skills[tblSkill.Name] = tblSkill end
-function SkillTable(strSkill) return GAMEMODE.DataBase.Skills[strSkill] end
+
+function Register.Skill(tblSkill) 
+	GM.DataBase.Skills[tblSkill.Name] = tblSkill end
+
+function SkillTable(strSkill) 
+	return GAMEMODE.DataBase.Skills[strSkill] end
+	
+-- DATABASE RECIPES ----
 
 GM.DataBase.Recipes = {}
-function Register.Recipe(tblRecipe) GM.DataBase.Recipes[tblRecipe.Name] = tblRecipe end
-function RecipeTable(strRecipe) return GAMEMODE.DataBase.Recipes[strRecipe] end
+
+function Register.Recipe(tblRecipe) 
+	GM.DataBase.Recipes[tblRecipe.Name] = tblRecipe end
+	
+function RecipeTable(strRecipe) 
+	return GAMEMODE.DataBase.Recipes[strRecipe] end
+	
+-- DATABASE MASTERS ----
 
 GM.DataBase.Masters = {}
-function Register.Master(tblMaster) GM.DataBase.Masters[tblMaster.Name] = tblMaster end
-function MasterTable(strMaster) return GAMEMODE.DataBase.Masters[strMaster] end
 
+function Register.Master(tblMaster) 
+	GM.DataBase.Masters[tblMaster.Name] = tblMaster end
+function MasterTable(strMaster) 
+	return GAMEMODE.DataBase.Masters[strMaster] end
+
+-- DATABASE EVENTS ----
+	
 GM.DataBase.Events = {}
-function Register.Event(tblEvent) GM.DataBase.Events[tblEvent.Name] = tblEvent end
-function EventTable(strEvent) return GAMEMODE.DataBase.Events[strEvent] end
+
+function Register.Event(tblEvent) 
+	GM.DataBase.Events[tblEvent.Name] = tblEvent end
+function EventTable(strEvent) 
+	return GAMEMODE.DataBase.Events[strEvent] end
 
 function AddPlayerModel(strModel)
 	table.insert(GM.PlayerModel, {strModel})
@@ -84,6 +150,7 @@ end
 function AddQuestObject(PrintName, strModel, Heightoffset)
 	table.insert(GM.QuestObject, {PrintName = PrintName, Model = strModel, Height = Heightoffset})
 end
+
 
 GM.QuestObject = {}
 -----Quest Objects-------
