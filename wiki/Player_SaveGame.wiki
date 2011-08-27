@@ -1,12 +1,17 @@
-=Player.NewGame=
+=Player.SaveGame=
 || *Syntax* || Player.SaveGame() ||
 || *Return* || nill ||
 || *Description* || Save player variables on new player ||
 || *Part of Library* || Player ||
 || *Type* || Serverside ||
+|| *File* || core\serverfiles\savingloading.lua ||
 
 ==Examples==
 
 ==Additional Notes==
 
 ==See Also==
+
+[Player_NewGame Player.NewGame()]
+
+[Player_LoadGame Player.LoadGame()]
