@@ -4,7 +4,7 @@
 
 ==Servside functions==
 ===Player===
-Player:NewGame
+[Player_NewGame Player:NewGame]
 
 Player:LoadGame
 
