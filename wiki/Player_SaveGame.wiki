@@ -1,0 +1,12 @@
+=Player.NewGame=
+|| *Syntax* || Player.SaveGame() ||
+|| *Return* || nill ||
+|| *Description* || Save player variables on new player ||
+|| *Part of Library* || Player ||
+|| *Type* || Serverside ||
+
+==Examples==
+
+==Additional Notes==
+
+==See Also==
