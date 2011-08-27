@@ -12,6 +12,28 @@
 	
 local Player = FindMetaTable("Player")
 
+
+DB = {}
+DB.elem = { ["Id"] = nil,
+			["Sid"] = nil,
+			["Name"] = nil,
+			["Inventory"] = nil,
+			["Bank"] = nil,
+			["Quests"] = nil,
+			["Friends"] = nil,
+			["Exp"] = nil
+			}
+function DB.send(Table) 
+	
+	
+end
+
+function DB.get() 
+	
+	
+end
+
+
 function Player:NewGame()
 
 	self:SetNWInt("exp", 0)
