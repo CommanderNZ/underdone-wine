@@ -1,5 +1,7 @@
 =How to add function on wiki=
 
+==Title name syntax : table_function==
+
 || *Syntax* || table.function( argument, ... ) ||
 || *Return* || nill,[optional argument], string, number, ... ||
 || *Description* || function description ||
