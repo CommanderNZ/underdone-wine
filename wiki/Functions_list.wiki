@@ -1,0 +1,13 @@
+#summary One-sentence summary of this page.
+
+=List of gamemode functions=
+
+==Servside functions==
+===Player===
+Player:NewGame()
+
+Player:LoadGame()
+
+Player:SaveGame()
+==Clientside functions==
+==Shared functions==
