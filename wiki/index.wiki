@@ -1,3 +1,0 @@
-#labels index
-=INDEX of WIKI= 
-*Main Page*
