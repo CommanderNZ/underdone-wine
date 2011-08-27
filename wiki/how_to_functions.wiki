@@ -4,7 +4,7 @@
 
 <img src="http://underdone-wine.googlecode.com/svn/img/Underdone_Wine_Wiki_Function.png" />
 
-Optional argument between hooks.
+Optional argument between hooks
 
 || *Syntax* || table.function( argument, ... ) ||
 || *Return* || nill, string, number, ... ||
