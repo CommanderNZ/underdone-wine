@@ -1,4 +1,17 @@
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //  _    _           _              _                   __          ___              //
+    // | |  | |         | |            | |                  \ \        / (_)             //
+    // | |  | |_ __   __| | ___ _ __ __| | ___  _ __   ___   \ \  /\  / / _ _ __   ___   //
+    // | |  | | '_ \ / _` |/ _ \ '__/ _` |/ _ \| '_ \ / _ \   \ \/  \/ / | | '_ \ / _ \  //
+    // | |__| | | | | (_| |  __/ | | (_| | (_) | | | |  __/    \  /\  /  | | | | |  __/  //
+    //  \____/|_| |_|\__,_|\___|_|  \__,_|\___/|_| |_|\___|     \/  \/   |_|_| |_|\___|  //
+    //                                                                                   //
+    //       Last edit : Sandros	                                                     //
+    //                                                                                   //
+    ///////////////////////////////////////////////////////////////////////////////////////
+//Table for folders
 local tblSharedFolders = {}
+
 tblSharedFolders[1] = "underdone/gamemode/core/sharedfiles/"
 tblSharedFolders[2] = "underdone/gamemode/core/sharedfiles/database/"
 tblSharedFolders[3] = "underdone/gamemode/core/sharedfiles/database/items/"
@@ -11,7 +24,9 @@ tblSharedFolders[9] = "underdone/gamemode/core/sharedfiles/database/recipes/"
 tblSharedFolders[10] = "underdone/gamemode/core/sharedfiles/database/masters/"
 tblSharedFolders[11] = "underdone/gamemode/core/sharedfiles/database/events/"
 
+//Table for client folders
 local tblClientFolders = {}
+
 tblClientFolders[1] = "underdone/gamemode/core/clientfiles/"
 tblClientFolders[2] = "underdone/gamemode/core/clientfiles/menus/"
 tblClientFolders[3] = "underdone/gamemode/core/clientfiles/vgui/"
@@ -19,45 +34,63 @@ tblClientFolders[4] = "underdone/gamemode/core/clientfiles/menutabs/"
 tblClientFolders[5] = "underdone/gamemode/core/clientfiles/menutabs/helpmenu/"
 tblClientFolders[6] = "underdone/gamemode/core/clientfiles/menutabs/auctionmenu/"
 
+//Table for server folders
 local tblServerFolders = {}
+
 tblServerFolders[1] = "underdone/gamemode/core/serverfiles/"
 tblServerFolders[2] = "underdone/gamemode/core/serverfiles/commands/"
 
 if SERVER then
+
 	local strPath = "underdone/content/materials/gui/"
+	
 	for _, file in pairs(file.FindInLua(strPath .. "*")) do
+	
 		if string.find(file, ".vmt") or string.find(file, ".vtf") then
+		
 			strPath = string.Replace(strPath, "underdone/content/", "")
 			resource.AddFile(strPath ..file)
 		end
 	end
+	
 	local strPath = "underdone/content/materials/icons/"
+	
 	for _, file in pairs(file.FindInLua(strPath .. "*")) do
+	
 		if string.find(file, ".vmt") or string.find(file, ".vtf") then
+		
 			strPath = string.Replace(strPath, "underdone/content/", "")
 			resource.AddFile(strPath .. file)
 		end
 	end
 	
 	local tblTotalFolder = {}
+	
 	table.Add(tblTotalFolder, tblSharedFolders)
 	table.Add(tblTotalFolder, tblClientFolders)
 	table.Add(tblTotalFolder, tblServerFolders)
+	
 	for _, path in pairs(tblTotalFolder) do
+	
 		for _, file in pairs(file.FindInLua(path .. "*.lua")) do
+		
 			if table.HasValue(tblClientFolders, path) or table.HasValue(tblSharedFolders, path) then
 				AddCSLuaFile(path .. file)
 			end
+			
 			if table.HasValue(tblSharedFolders, path) or table.HasValue(tblServerFolders, path)  then
 				include(path .. file)
 			end
 		end
 	end
+	
 	function resource.AddDir( dir, ext )
+	
 		for _, f in pairs( file.Find( "../" .. dir .. "/*" .. (ext or "") ) ) do
 			resource.AddFile( dir .. "/" .. f )
 		end
 	end
+	
 	resource.AddDir( "materials/gui", ".vmt" )
 	resource.AddDir( "materials/gui", ".vtf" )
 	resource.AddDir( "materials/icons", ".vmt" )
@@ -70,14 +103,19 @@ if SERVER then
 	resource.AddFile( "models/Betam01_Soldier.phy" )
 	resource.AddFile( "models/Betam01_Soldier.sw.vtx" )
 	resource.AddFile( "models/Betam01_Soldier.vvd" )
+	
 end
 
 if !SERVER then
+
 	local tblTotalFolder = {}
 	table.Add(tblTotalFolder, tblSharedFolders)
 	table.Add(tblTotalFolder, tblClientFolders)
+	
 	for _, path in pairs(tblTotalFolder) do
+	
 		for _, file in pairs(file.FindInLua(path .. "*.lua")) do
+		
 			include(path .. file)
 		end
 	end
