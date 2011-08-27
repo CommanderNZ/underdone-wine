@@ -4,7 +4,7 @@
 || *Description* || Reset skill for 1000 dollars ||
 || *Part of Library* || Player ||
 || *Type* || Serverside ||
-|| *File* || \core\sharedfiles\sh_player_ex.lua ||
+|| *File* || core\sharedfiles\sh_player_ex.lua ||
 
 ==Examples==
 {{{
