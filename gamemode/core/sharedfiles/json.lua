@@ -33,11 +33,11 @@
 	name3 = Json.Null() 
  }
 
- local json = Json.Encode (t)
- print (json) 
+ local Json = Json.Encode (t)
+ print (Json) 
  --> {"name1":"value1","name3":null,"name2":[1,false,true,23.54,"a \u0015 string"]}
 
- local t = Json.Decode(json)
+ local t = Json.Decode(Json)
  print(t.name2[4])
  --> 23.54
  
