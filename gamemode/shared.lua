@@ -13,9 +13,9 @@ clrMooca = Color(107, 97, 78, 255)
 clrWhite = Color(242, 242, 242, 255)
 ---------Generic---------
 GM.Name 		= "UnderDone"
-GM.Author 		= "MMORPG - In Dev by RealGame"
-GM.Email 		= "contact@realgame.fr"
-GM.Website 		= "http://www.realgame.fr/"
+GM.Author 		= "MMORPG - In Dev"
+GM.Email 		= "http://code.google.com/p/underdone-wine/people/list"
+GM.Website 		= "http://code.google.com/p/underdone-wine/"
 GM.MaxSlots		= 20
 -----Global Vars---------
 GM.MonsterViewDistance = 200
