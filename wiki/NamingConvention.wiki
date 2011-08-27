@@ -6,7 +6,7 @@
 local MyVariable = false
 local TooLongVarNameOfDoom</code>
  * end of instruction
-  * *None* aka *no* <code langage="lua">local Var = 0;</code>
+  * *None* alias *no* <code langage="lua">local Var = 0;</code>
  * functions name
   * No-capital letter on the first word.
   * Each words are collapsed.
