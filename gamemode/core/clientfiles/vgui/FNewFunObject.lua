@@ -1,3 +1,15 @@
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //  _    _           _              _                   __          ___              //
+    // | |  | |         | |            | |                  \ \        / (_)             //
+    // | |  | |_ __   __| | ___ _ __ __| | ___  _ __   ___   \ \  /\  / / _ _ __   ___   //
+    // | |  | | '_ \ / _` |/ _ \ '__/ _` |/ _ \| '_ \ / _ \   \ \/  \/ / | | '_ \ / _ \  //
+    // | |__| | | | | (_| |  __/ | | (_| | (_) | | | |  __/    \  /\  /  | | | | |  __/  //
+    //  \____/|_| |_|\__,_|\___|_|  \__,_|\___/|_| |_|\___|     \/  \/   |_|_| |_|\___|  //
+    //                                                                                   //
+    //       Last edit : Batman06                                                        //
+    //                                                                                   //
+    ///////////////////////////////////////////////////////////////////////////////////////
+	
 --[[
 	+oooooo+-`    `:oyyys+-`    +oo.       /oo-   .oo+-  ooo+`   `ooo+  
 	NMMhyhmMMm-  omMNyosdMMd:   NMM:       hMM+ `oNMd:  `MMMMy`  yMMMN  
@@ -11,14 +23,19 @@
 local PANEL = {}
 
 function PANEL:Init()
+
 	self.Color = Color(200, 200, 200, 255)
+	
 end
 
 function PANEL:SetColor(clrColor)
+
 	self.Color = clrColor
+	
 end
 
 function PANEL:Paint()
+
 	--Prepare to shit out your eyes
 	--Meh Curclu Code
 	--[[
@@ -48,20 +65,31 @@ function PANEL:Paint()
 	
 	local intWidth, intHieght = self:GetWide(), self:GetTall()
 	surface.SetDrawColor(self.Color.r, self.Color.g, self.Color.b, self.Color.a)
+	
 	--Draw the ground
 	surface.DrawLine(0, intHieght - 1, intWidth, intHieght - 1)
+	
 	--Draw Branches
+	
 	local function LoadBranch(tblBranch)
+	
 		for _, tblLine in pairs(tblBranch or {}) do
+		
 			surface.DrawLine(tblLine.StartX, tblLine.StartY, tblLine.StartX + tblLine.EndX, tblLine.StartY - tblLine.EndY)
+			
 			LoadBranch(tblLine.Branches or {})
+			
 		end
+		
 	end
+	
 	LoadBranch(self.Branches)
+	
 end
 vgui.Register("FNewFunObject", PANEL, "Panel")
 
 local function FunExample()
+
 	local frmTestFrame = vgui.Create("DFrame")
 	frmTestFrame:SetSize(400, 400)
 	frmTestFrame:Center()
@@ -69,31 +97,50 @@ local function FunExample()
 	frmTestFrame:SetDraggable(true)
 	frmTestFrame:ShowCloseButton(true)
 	frmTestFrame:MakePopup()
-		local gphTestGraph = vgui.Create("FNewFunObject", frmTestFrame)
-		gphTestGraph:SetPos(5, 25)
-		gphTestGraph:SetSize(frmTestFrame:GetWide(), frmTestFrame:GetTall() - 30)
-		gphTestGraph:SetColor(Color(50, 255, 50, 255))
-		gphTestGraph.Branches = gphTestGraph.Branches or {}
-		table.insert(gphTestGraph.Branches, {StartX = gphTestGraph:GetWide() / 2, StartY = gphTestGraph:GetTall(), EndX = math.random(-5, 5), EndY = math.random(10, 50), Branches = {}})
-		local function CreateBranches(tblParentBranch)
-			local tblBranches = tblParentBranch.Branches
-			local intBranches = #tblBranches
-			local tblReturnTable = {}
-			for _, tblBranchTable in pairs(tblBranches) do
-				for i = 1, 3 do
-					local intParentX, intParentY = tblBranchTable.StartX + tblBranchTable.EndX, tblBranchTable.StartY - tblBranchTable.EndY
-					table.insert(tblBranchTable.Branches, {StartX = intParentX, StartY = intParentY, EndX = math.random(-15, 15), EndY = math.random(10, 50), Branches = {}})
-					table.insert(tblReturnTable, tblBranchTable)
-				end
+	
+	local gphTestGraph = vgui.Create("FNewFunObject", frmTestFrame)
+	
+	gphTestGraph:SetPos(5, 25)
+	gphTestGraph:SetSize(frmTestFrame:GetWide(), frmTestFrame:GetTall() - 30)
+	gphTestGraph:SetColor(Color(50, 255, 50, 255))
+	gphTestGraph.Branches = gphTestGraph.Branches or {}
+	
+	table.insert(gphTestGraph.Branches, {StartX = gphTestGraph:GetWide() / 2, StartY = gphTestGraph:GetTall(), EndX = math.random(-5, 5), EndY = math.random(10, 50), Branches = {}})
+	
+	local function CreateBranches(tblParentBranch)
+	
+		local tblBranches = tblParentBranch.Branches
+		local intBranches = #tblBranches
+		local tblReturnTable = {}
+		
+		for _, tblBranchTable in pairs(tblBranches) do
+		
+			for i = 1, 3 do
+			
+				local intParentX, intParentY = tblBranchTable.StartX + tblBranchTable.EndX, tblBranchTable.StartY - tblBranchTable.EndY
+				
+				table.insert(tblBranchTable.Branches, {StartX = intParentX, StartY = intParentY, EndX = math.random(-15, 15), EndY = math.random(10, 50), Branches = {}})
+				table.insert(tblReturnTable, tblBranchTable)
+				
 			end
-			return tblReturnTable
+			
 		end
-		CreateBranches(gphTestGraph)
-		for _, tblBranchTable in pairs(gphTestGraph.Branches) do
-			for _, tblBranchTable in pairs(CreateBranches(tblBranchTable)) do
-				CreateBranches(tblBranchTable)
-			end
+		
+		return tblReturnTable
+		
+	end
+	
+	CreateBranches(gphTestGraph)
+	
+	for _, tblBranchTable in pairs(gphTestGraph.Branches) do
+	
+		for _, tblBranchTable in pairs(CreateBranches(tblBranchTable)) do
+		
+			CreateBranches(tblBranchTable)
+			
 		end
+		
+	end
 		
 end
 concommand.Add("FunExample", FunExample)
