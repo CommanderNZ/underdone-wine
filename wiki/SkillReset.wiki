@@ -1,0 +1,17 @@
+=Player.NewGame=
+|| *Syntax* || Player.SkillReset() ||
+|| *Return* || nill ||
+|| *Description* || Reset skill for 1000 dollars ||
+|| *Part of Library* || Player ||
+|| *Type* || Serverside ||
+
+==Examples==
+{{{
+Entity(1):SkillReset()
+}}}
+==Additional Notes==
+This function execute Player.SaveGame
+==See Also==
+Player.SetSkill
+
+Player.RemoveItem
