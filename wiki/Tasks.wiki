@@ -3,7 +3,7 @@
 = Tasks =
 
  * [Sql_migration Sql Migration]
- * Change Glon by Json *Done*
+ * ~~Change Glon by Json~~ *Done*
  * Character maker system
  * Player vs Player (PVP) system
  * Multi-language (english, french)
