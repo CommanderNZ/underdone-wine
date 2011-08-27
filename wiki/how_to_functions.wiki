@@ -1,0 +1,20 @@
+=How to add function on wiki=
+
+|| *Syntax* || table.function( argument, ... ) ||
+|| *Return* || nill,[optional argument], string, number, ... ||
+|| *Description* || function description ||
+|| *Part of Library* || Table part ||
+|| *Type* || Serverside, Clientside or Shared ||
+
+==Examples==
+{{{
+table.function( var )
+}}}
+
+Type '*Trololoo*' + *var* in console
+
+==Additional Notes==
+This function execute blabla
+==See Also==
+table.otherFunction()
+table.otherFunction()
