@@ -1,4 +1,5 @@
 --------Includes---------
+include("core/sharedfiles/json.lua")
 require("Json")
 include('shared.lua')
 include('core/sharedfiles/database/items/sh_items_base.lua')
