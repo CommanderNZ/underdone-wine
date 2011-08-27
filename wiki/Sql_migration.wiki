@@ -2,8 +2,6 @@
 
 = Commiter =
  * Alexandre.sandros
-Add your content here.
-
 
 = Details =
 == SQL Scheme ==
