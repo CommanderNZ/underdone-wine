@@ -2,7 +2,7 @@
 
 ==Title name syntax : table_function==
 
-<img src="http://data.imagup.com/10/1129141401.png" />
+<img src="http://underdone-wine.googlecode.com/svn/img/Underdone_Wine_Wiki_Function.png" />
 
 Argument optionnel entre crochet
 
