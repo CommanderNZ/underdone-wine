@@ -14,21 +14,74 @@ local Player = FindMetaTable("Player")
 
 
 DB = {}
-DB.elem = { ["Id"] = nil,
-			["Sid"] = nil,
-			["Name"] = nil,
-			["Inventory"] = nil,
-			["Bank"] = nil,
-			["Quests"] = nil,
-			["Friends"] = nil,
-			["Exp"] = nil
+DB.elem = { ["Id"] = "",
+			["Sid"] = "STEAM_ID_PENDING",
+			["Name"] = "",
+			["Model"] = "",
+			["Inventory"] = "",
+			["Bank"] = "",
+			["Quests"] = "",
+			["Friends"] = "",
+			["Exp"] = ""
 			}
-function DB.send(Table) 
+function DB.send(Table ) 
+
+	if !GM.Config then GM.Config = {} or GM.Config end
+	
+	if !GM.Config.DB then GM.Config.DB = {} or GM.Config.DB end
+	
+	if !GM.Config.DB.Type then GM.Config.DB.Type = "sqllite" or GM.Config.DB.Type end
+	
+
+	for k,v in pairs(DB.elem) do
+		
+		for ki,vi in pairs(Table) do
+		
+			if ki == k then
+				Table[ki] = vi
+			else
+				Table[ki] = v
+			end
+		end
+	end
 	
 	
+	if GM.Config.DB.Type == "sqllite" then
+		
+		if !sql.TableExists("ud_player") then
+			
+			local Query = [[
+			CREATE TABLE `ud_player` (
+					`Id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+					`Sid` VARCHAR( 30 ) NOT NULL ,
+					`Name` VARCHAR( 25 ) NOT NULL ,
+					`Model` TEXT NOT NULL ,
+					`Inventory` TEXT NOT NULL ,
+					`Bank` TEXT NOT NULL ,
+					`Quests` TEXT NOT NULL ,
+					`Friends` TEXT NOT NULL ,
+					`Exp` TEXT NOT NULL
+					) ENGINE = MYISAM ;]]
+			sql.Query(Query)
+		end
+	elseif GM.Config.GM.Type == "txt" then
+	
+		local strSteamID = string.Replace(Table.Sid, ":", "!")
+		
+		if strSteamID != "STEAM_ID_PENDING" then
+		
+			local strFileName = "UnderDone/" .. strSteamID .. ".txt"
+			
+			tblSaveTable.Exp = self:GetNWInt("exp")
+			
+			file.Write(strFileName, Json.Encode(Table))
+			
+		end
+		
+	end
 end
 
-function DB.get() 
+function DB.get(Player) 
 	
 	
 end
