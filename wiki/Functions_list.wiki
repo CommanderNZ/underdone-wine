@@ -20,7 +20,6 @@ Player:GiveExp
 
 Player:RemoveItem
 
-Player:CreateNotification
 ==Clientside functions==
 ==Player===
 Player:FollowPlayer
@@ -38,3 +37,6 @@ Player:GetMaximumHealth
 Player:GetMaxWeight
 
 Player:GetArmorRating
+
+
+Player:CreateNotification
