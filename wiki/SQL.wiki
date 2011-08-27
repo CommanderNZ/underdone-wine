@@ -10,9 +10,15 @@ Lien pour les library mysql :
 
 Préférable de prendre Tmysql, librairie plus easy 
 [http://gmodmodules.googlecode.com/svn/trunk/gm_tmysql3_boost/]
+
 [http://gmodmodules.googlecode.com/svn/trunk/gm_tmysql3/]
+
 [http://gmodmodules.googlecode.com/svn/trunk/gm_tmysql2/]
+
+
+
 Sqllite déjà implanté dans GMOD
+
 
 ==Pour commencer==
 
