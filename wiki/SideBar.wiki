@@ -2,4 +2,4 @@
  * [bugs Bugs]
  * [Functions_list Functions list]
  * *How To*
-  * [how_to_functions How to make function]
+  * [how_to_functions How to add function on wiki]
