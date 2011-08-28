@@ -1,9 +1,9 @@
-#summary One-sentence summary of this page.
-
 =List of gamemode functions=
 
 ==Servside functions==
+
 ===Player===
+
 [Player_NewGame Player.NewGame]
 
 [Player_LoadGame Player.LoadGame]
@@ -26,16 +26,46 @@ Player.CraftRecipe
 
 Entity.SetServerScale
 
+====Progress Bar====
+
+Player.CreateProgressBar
+
+====Create Notification====
+
+Player.CreateNotification
+
+Player:BuyMasterLevel
+
+====Master====
+
+Player.BuyMasterLevel
+
+====Book====
+
+Player.RequestBookStory(strBook)
+
+====Damage indicator====
+
+Player.CreateIndacator
+
 ==Clientside functions==
+
 ==Player===
+
 Player.FollowPlayer
 
 Player.StopFollowing
 
+Player.PapperDollBuildSlot
 
+====Firends====
+
+Player.AddFriend
 
 ==Shared functions==
+
 ===Player===
+
 Player.IsMelee
 
 Player.IsDonator
@@ -120,15 +150,97 @@ Player.CanAcceptQuest
 
 Player.CanTurnInQuest
 
+Player.HasSet
+
+Player.SetPaperDoll
+
+Player.GetSlot
+
+====Master====
+
+Player.SetMaster
+
+Player.GetMasterExp
+
+Player.GetMasterExpNextLevel
+
+Player.AddMaster
+
+Player.RemoveMaster
+
+Player.GetTotalMasters
+
+====Book====
+
+Player.AddBookToLibrary
+
+Player.HasReadBook
+
+====Friends====
+
+Player.GetFriends
+
+Player.GetFriendsFriend
+
+Player.HasBlocked
+
+Player.AddFriend
+
+Player.DeleteFriend
+
+Player.BlockFriend
+
+====Bank====
+
+Player.GetBankSize
+
+Player.GetBankTotalSize
+
+Player.AddItemToBank
+
+Player.RemoveItemFromBank
+
+Player.GetBank
+
+Player.GetBankItem
+
+Player.HasBankItem
+
+Player.HasBankRoomFor
+
 ===Entity===
 
 Entity.GetLevel
 
 Entity.CreateGrip
 
+====Malus====
+
 Entity.Stun
 
 Entity.IgniteFor
+
+====Items, inventory====
+
+Entity.AddItem
+
+Entity.RemoveItem
+
+Entity.GetItem
+
+Entity.TransferItem
+
+Entity.HasItem
+
+Entity.HasRoomFor
+
+Entity.TotalWeightOf
+
+Entity.GiveItems
+
+Entity.TakeItems
+
+====Other====
 
 Entity.IsBuilding
 
