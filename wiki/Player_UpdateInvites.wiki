@@ -1,0 +1,18 @@
+==Player.UpdateInvites==
+
+|| *Syntax* || Player:UpdateInvites() ||
+|| *Return* || nill ||
+|| *Description* || Update squad invites for client interface ||
+|| *Part of Library* || Player ||
+|| *Type* ||  Shared ||
+|| *File* || core/sharedfiles/sh_squads.lua ||
+
+==Examples==
+
+==Additional Notes==
+
+==See Also==
+
+[Player_GetAverageSquadLevel Player.GetAverageSquadLevel]
+
+[Player_GetAverageSquadLevel Player.IsInSquad]
