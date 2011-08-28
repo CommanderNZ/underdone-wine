@@ -1,0 +1,16 @@
+==Player.GetAverageSquadLevel==
+
+|| *Syntax* || Player.GetAverageSquadLevel() ||
+|| *Return* || Integer ||
+|| *Description* || This function set the level of the squad on the player with the highest level ||
+|| *Part of Library* || Table part ||
+|| *Type* || Serverside, Clientside or Shared ||
+|| *File* || core/sharedfiles/sh_squads.lua ||
+
+==Examples==
+
+==Additional Notes==
+
+If the player have no squad, the function return 1
+
+==See Also==
