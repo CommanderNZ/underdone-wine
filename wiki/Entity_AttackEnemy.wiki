@@ -1,0 +1,17 @@
+=Entity.AttackEnemy=
+|| *Syntax* || Entity.AttackEnemy(Entity) ||
+|| *Return* || nill ||
+|| *Description* || Attack Entity by NPC ||
+|| *Part of Library* || Player ||
+|| *Type* || Sharedfiles||
+|| *File* || core\sharedfiles\sh_entity.lua ||
+
+==Examples==
+
+==Additional Notes==
+
+==See Also==
+
+[Player_LoadGame Player.LoadGame()]
+
+[Player_SaveGame Player.SaveGame()]
