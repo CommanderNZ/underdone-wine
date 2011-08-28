@@ -2,9 +2,9 @@
 
 || *Syntax* || Player:GetAverageSquadLevel() ||
 || *Return* || Integer ||
-|| *Description* || This function set the level of the squad on the player with the highest level ||
-|| *Part of Library* || Table part ||
-|| *Type* || Serverside, Clientside or Shared ||
+|| *Description* || Set the level of the squad on the player with the highest level ||
+|| *Part of Library* || Player ||
+|| *Type* || Shared ||
 || *File* || core/sharedfiles/sh_squads.lua ||
 
 ==Examples==
