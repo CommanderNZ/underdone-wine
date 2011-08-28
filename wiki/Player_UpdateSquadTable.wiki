@@ -12,3 +12,5 @@
 ==Additional Notes==
 
 ==See Also==
+
+[Player_UpdateInvites Player.UpdateInvites]
