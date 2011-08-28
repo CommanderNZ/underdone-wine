@@ -69,7 +69,7 @@ function PANEL:LoadSkills()
 	
 	local tblAddTable = table.Copy(GAMEMODE.DataBase.Skills)
 	
-	tblAddTable = table.ClearKeys(tblAddTable
+	tblAddTable = table.ClearKeys(tblAddTable)
 	
 	table.sort(tblAddTable, function(statA, statB) return statA.Tier < statB.Tier end)
 	

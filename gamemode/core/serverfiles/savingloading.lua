@@ -209,8 +209,8 @@ function Player:LoadGame()
 		end
 		
 	end]]--
-	
-	if tblDecodedTable = DB.get(self) == false then
+	tblDecodedTable = DB.get(self) 
+	if tblDecodedTable == false then
 		
 		self:NewGame()
 	end
