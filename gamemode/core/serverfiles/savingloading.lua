@@ -130,7 +130,7 @@ elseif GM.Config.GM.Type == "txt" then
 end
 
 hook.Add("InitPostEntity", "CreateTable", function()
-	if GM.Config.DB.Type == "sqllite" then
+	if GAMEMODE.Config.DB.Type == "sqllite" then
 		sql.Query([[
 			CREATE TABLE IF NOT EXIST`ud_player` (
 					`Id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
