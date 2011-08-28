@@ -51,8 +51,9 @@ if !ValidEntity(GM.Config.DB.Type) then GM.Config.DB.Type = "sqllite" or GM.Conf
 if GM.Config.DB.Type == "sqllite" then
 	
 	DB.send = function(Table, Player)
-
+	
 		Table = checkTable(Table)
+		if Table.Sid == Player:SteamID() then Table.Sid = Player:SteamID() end
 		
 		if sql.Query('SELECT Id WHERE Sid = `' .. Player:SteamID() .. '`') then
 		
@@ -81,21 +82,23 @@ if GM.Config.DB.Type == "sqllite" then
 				tblTreat[k] = result[1][k] 
 			end
 		end
+		
+		return tblTreat
 	end
 	
 elseif GM.Config.GM.Type == "txt" then
 	
-	DB.send = function(Table)
-	
-		Table = checkTable(Table)
+	DB.send = function(Table, Player)
 		
+		Table = checkTable(Table)
+		if Table.Sid == Player:SteamID() then Table.Sid = Player:SteamID() end 
 		local strSteamID = string.Replace(Table.Sid, ":", "!")
 		
 		if strSteamID != "STEAM_ID_PENDING" then
 		
 			local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 			
-			Table.Exp = self:GetNWInt("exp")
+			Table.Exp = Player:GetNWInt("exp")
 
 			file.Write(strFileName, Json.Encode(Table))
 			
@@ -103,6 +106,27 @@ elseif GM.Config.GM.Type == "txt" then
 		
 	end
 	
+	DB.get = function(Player)
+	
+		local strSteamID = string.Replace(Player:SteamID(), ":", "!") 
+
+		if strSteamID != "STEAM_ID_PENDING" then
+
+			local strFileName = "UnderDone/" .. strSteamID .. ".txt"
+			
+			if file.Exists(strFileName) then
+			
+				return Json.Decode(file.Read(strFileName))
+				
+			else
+			
+				return false
+				
+			end
+			
+		end
+	
+	end
 end
 
 hook.Add("InitPostEntity", "CreateTable", function()
@@ -170,7 +194,7 @@ function Player:LoadGame()
 	local tblDecodedTable = {}
 	local strSteamID = string.Replace(self:SteamID(), ":", "!") // A viré !
 	
-	if strSteamID != "STEAM_ID_PENDING" then
+	--[[if strSteamID != "STEAM_ID_PENDING" then
 	
 		local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 		
@@ -184,7 +208,13 @@ function Player:LoadGame()
 			
 		end
 		
+	end]]--
+	
+	if tblDecodedTable = DB.get(self) == false then
+		
+		self:NewGame()
 	end
+	
 	
 	if tblDecodedTable != {} then
 	
@@ -261,6 +291,9 @@ function Player:SaveGame()
 	
 	local tblSaveTable = table.Copy(self.Data)
 	
+	tblSaveTable.Sid = self:SteamID()
+	tblSaveTable.Name = self:GetName()
+	
 	tblSaveTable.Inventory = {}
 	
 	--Polkm: Space saver loop
@@ -310,7 +343,7 @@ function Player:SaveGame()
 		
 	end	
 	
-	local strSteamID = string.Replace(self:SteamID(), ":", "!")
+	--[[local strSteamID = string.Replace(self:SteamID(), ":", "!")
 	
 	if strSteamID != "STEAM_ID_PENDING" then
 	
@@ -320,7 +353,9 @@ function Player:SaveGame()
 		
 		file.Write(strFileName, Json.Encode(tblSaveTable))
 		
-	end
+	end]]--
+	
+	DB.send(tblSaveTable,self)
 	
 end
 
