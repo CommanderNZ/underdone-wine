@@ -1,6 +1,6 @@
 ==Player.SetSkill==
 
-|| *Syntax* || Player:SetSkill( skill:String, intAmount:Integer ) ||
+|| *Syntax* || Player:SetSkill( strSkill:String, intAmount:Integer ) ||
 || *Return* || nill ||
 || *Description* || Set skill at number defined in arguments  ||
 || *Part of Library* || Player ||
