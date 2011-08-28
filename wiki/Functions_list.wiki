@@ -4,260 +4,260 @@
 
 ===Player===
 
-[Player_NewGame Player.NewGame]
+Player.[Player_NewGame NewGame]
 
-[Player_LoadGame Player.LoadGame]
+Player.[Player_LoadGame LoadGame]
 
-[Player_SaveGame Player.SaveGame]
+Player.[Player_SaveGame SaveGame]
 
-[Player_SkillReset Player.SkillReset]
+Player.[Player_SkillReset SkillReset]
 
-Player.SearchQuestProp
+Player.[Player_SearchQuestProp SearchQuestProp]
 
-Player.SearchWorldProp
+Player.[Player_SearchWorldProp SearchWorldProp]
 
-Player.GiveExp
+Player.[Player_GiveExp GiveExp]
 
-[Player_RemoveItem Player.RemoveItem]
+Player.[Player_RemoveItem RemoveItem]
 
-Player.CraftRecipe
+Player.[Player_CraftRecipe CraftRecipe]
 
 ===Entity===
 
-Entity.SetServerScale
+Entity.[Entity_SetServerScale SetServerScale]
 
 ====Progress Bar====
 
-Player.CreateProgressBar
+Player.[Player_CreateProgressBar CreateProgressBar]
 
 ====Create Notification====
 
-Player.CreateNotification
+Player.[Player_CreateNotification CreateNotification]
 
 Player:BuyMasterLevel
 
 ====Master====
 
-Player.BuyMasterLevel
+Player.[Player_BuyMasterLevel BuyMasterLevel]
 
 ====Book====
 
-Player.RequestBookStory(strBook)
+Player.[Player_RequestBookStory RequestBookStory]
 
 ====Damage indicator====
 
-Player.CreateIndacator
+Player.[Player_CreateIndacator CreateIndacator]
 
 ==Clientside functions==
 
 ==Player===
 
-Player.FollowPlayer
+Player.[Player_FollowPlayer FollowPlayer]
 
-Player.StopFollowing
+Player.[Player_StopFollowing StopFollowing]
 
-Player.PapperDollBuildSlot
+Player.[Player_PapperDollBuildSlot PapperDollBuildSlot]
 
 ====Firends====
 
-Player.AddFriend
+Player.[Player_AddFriend AddFriend]
 
 ==Shared functions==
 
 ===Player===
 
-Player.IsMelee
+Player.[Player_IsMelee IsMelee]
 
-Player.IsDonator
+Player.[Player_IsDonator IsDonator]
 
-Player.GetMaximumHealth
+Player.[Player_GetMaximumHealth GetMaximumHealth]
 
-Player.GetMaxWeight
+Player.[Player_GetMaxWeight GetMaxWeight]
 
-Player.GetArmorRating
+Player.[Player_GetArmorRating GetArmorRating]
 
-[Player_CreateNotification Player.CreateNotification]
+Player.[Player_CreateNotification CreateNotification]
 
-Player.ApplyBuffTable
+Player.[Player_ApplyBuffTable ApplyBuffTable]
 
 ====Trade====
 
-Player.GetTrade
+Player.[Player_GetTrade GetTrade]
 
-Player.GetTradeItem
+Player.[Player_GetTradeItem GetTradeItem]
 
-Player.AddItemTrade
+Player.[Player_AddItemTrade AddItemTrade]
 
 ====Stat====
 
-Player.AddStat
+Player.[Player_AddStat AddStat]
 
-Player.SetStat
+Player.[Player_SetStat SetStat]
 
-Player.GetStat
+Player.[Player_GetStat GetStat]
 
 ====Squad====
 
-Player.UpdateInvites
+Player.[Player_UpdateInvites UpdateInvites]
 
-Player.UpdateSquadTable
+Player.[Player_UpdateSquadTable UpdateSquadTable]
 
-Player.IsInSquad
+Player.[Player_IsInSquad IsInSquad]
 
-Player.GetAverageSquadLevel
+Player.[Player_GetAverageSquadLevel GetAverageSquadLevel]
 
 ====Skill====
 
-Player.SetSkill
+Player.[Player_SetSkill SetSkill]
 
-Player.GetSkill
+Player.[Player_GetSkill GetSkill]
 
-Player.CanHaveSkill
+Player.[Player_CanHaveSkill CanHaveSkill]
 
-Player.HasSkill
+Player.[Player_HasSkill HasSkill]
 
-Player.GetDeservedSkillPoints
+Player.[Player_GetDeservedSkillPoints GetDeservedSkillPoints]
 
-Player.CallSkillHook
+Player.[Player_CallSkillHook CallSkillHook]
 
 ====Shops====
 
-Player.GetItemBuyPrice
+Player.[Player_GetItemBuyPrice GetItemBuyPrice]
 
 ====Recipe====
 
-Player.AddRecipe
+Player.[Player_AddRecipe AddRecipe]
 
-Player.HasRecipe
+Player.[Player_HasRecipe HasRecipe]
 
-Player.CanMake
+Player.[Player_CanMake CanMake]
 
 ====Quests====
 
-Player.AddQuest
+Player.[Player_AddQuest AddQuest]
 
-Player.QuestItem
+Player.[Player_QuestItem QuestItem]
 
-Player.HasCompletedQuest
+Player.[Player_HasCompletedQuest HasCompletedQuest]
 
-Player.GetQuest
+Player.[Player_GetQuest GetQuest]
 
-Player.UpdateQuest
+Player.[Player_UpdateQuest UpdateQuest]
 
-Player.AddQuestKill
+Player.[Player_AddQuestKill AddQuestKill]
 
-Player.CanAcceptQuest
+Player.[Player_CanAcceptQuest CanAcceptQuest]
 
-Player.CanTurnInQuest
+Player.[Player_CanTurnInQuest CanTurnInQuest]
 
-Player.HasSet
+Player.[Player_HasSet HasSet]
 
-Player.SetPaperDoll
+Player.[Player_SetPaperDoll SetPaperDoll]
 
-Player.GetSlot
+Player.[Player_GetSlot GetSlot]
 
 ====Master====
 
-Player.SetMaster
+Player.[Player_SetMaster SetMaster]
 
-Player.GetMasterExp
+Player.[Player_GetMasterExp GetMasterExp]
 
-Player.GetMasterExpNextLevel
+Player.[Player_GetMasterExpNextLevel GetMasterExpNextLevel]
 
-Player.AddMaster
+Player.[Player_AddMaster AddMaster]
 
-Player.RemoveMaster
+Player.[Player_RemoveMaster RemoveMaster]
 
-Player.GetTotalMasters
+Player.[Player_GetTotalMasters GetTotalMasters]
 
 ====Book====
 
-Player.AddBookToLibrary
+Player.[Player_AddBookToLibrary AddBookToLibrary]
 
-Player.HasReadBook
+Player.[Player_HasReadBook HasReadBook]
 
 ====Friends====
 
-Player.GetFriends
+Player.[Player_GetFriends GetFriends]
 
-Player.GetFriendsFriend
+Player.[Player_GetFriendsFriend GetFriendsFriend]
 
-Player.HasBlocked
+Player.[Player_HasBlocked HasBlocked]
 
-Player.AddFriend
+Player.[Player_AddFriend AddFriend]
 
-Player.DeleteFriend
+Player.[Player_DeleteFriend DeleteFriend]
 
-Player.BlockFriend
+Player.[Player_BlockFriend BlockFriend]
 
 ====Bank====
 
-Player.GetBankSize
+Player.[Player_GetBankSize GetBankSize]
 
-Player.GetBankTotalSize
+Player.[Player_GetBankTotalSize GetBankTotalSize]
 
-Player.AddItemToBank
+Player.[Player_AddItemToBank AddItemToBank]
 
-Player.RemoveItemFromBank
+Player.[Player_RemoveItemFromBank RemoveItemFromBank]
 
-Player.GetBank
+Player.[Player_GetBank GetBank]
 
-Player.GetBankItem
+Player.[Player_GetBankItem GetBankItem]
 
-Player.HasBankItem
+Player.[Player_HasBankItem HasBankItem]
 
-Player.HasBankRoomFor
+Player.[Player_HasBankRoomFor HasBankRoomFor]
 
 ===Entity===
 
-Entity.GetLevel
+Entity.[Entity_GetLevel GetLevel]
 
-Entity.CreateGrip
+Entity.[Entity_CreateGrip CreateGrip]
 
 ====Malus====
 
-Entity.Stun
+Entity.[Entity_Stun Stun]
 
-Entity.IgniteFor
+Entity.[Entity_IgniteFor IgniteFor]
 
 ====Items, inventory====
 
-Entity.AddItem
+Entity.[Entity_AddItem AddItem]
 
-Entity.RemoveItem
+Entity.[Entity_RemoveItem RemoveItem]
 
-Entity.GetItem
+Entity.[Entity_GetItem GetItem]
 
-Entity.TransferItem
+Entity.[Entity_TransferItem TransferItem]
 
-Entity.HasItem
+Entity.[Entity_HasItem HasItem]
 
-Entity.HasRoomFor
+Entity.[Entity_HasRoomFor HasRoomFor]
 
-Entity.TotalWeightOf
+Entity.[Entity_TotalWeightOf TotalWeightOf]
 
-Entity.GiveItems
+Entity.[Entity_GiveItems GiveItems]
 
-Entity.TakeItems
+Entity.[Entity_TakeItems TakeItems]
 
 ====Other====
 
-Entity.IsBuilding
+Entity.[Entity_IsBuilding IsBuilding]
 
-Entity.IsPet
+Entity.[Entity_IsPet IsPet]
 
-Entity.Idle
+Entity.[Entity_Idle Idle]
 
-Entity.IsIdle
+Entity.[Entity_IsIdle IsIdle]
 
-Entity.Follow
+Entity.[Entity_Follow Follow]
 
-Entity.IsFollowing
+Entity.[Entity_IsFollowing IsFollowing]
 
-Entity.ReturnSpawn
+Entity.[Entity_ReturnSpawn ReturnSpawn]
 
-Entity.AttackPos
+Entity.[Entity_AttackPos AttackPos]
 
-Entity.AttackEnemy
+Entity.[Entity_AttackEnemy AttackEnemy]
 
-Entity.IsBlocked
+Entity.[Entity_IsBlocked IsBlocked]
