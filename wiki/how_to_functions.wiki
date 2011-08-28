@@ -6,7 +6,7 @@
 
 Optional argument between hooks
 
-|| *Syntax* || table.function( argument, ... ) ||
+|| *Syntax* || table:function( argument, ... ) ||
 || *Return* || nill, string, number, ... ||
 || *Description* || function description ||
 || *Part of Library* || Table part ||
@@ -17,7 +17,7 @@ Optional argument between hooks
 
 {{{
 
-|| *Syntax* || table.function( argument, ... ) ||
+|| *Syntax* || table:function( argument, ... ) ||
 || *Return* || nill,[optional argument], string, number, ... ||
 || *Description* || function description ||
 || *Part of Library* || Table part ||
@@ -70,7 +70,7 @@ table.otherFunction
 
 ==Table.function==
 
-|| *Syntax* || table.function( argument, ... ) ||
+|| *Syntax* || table:function( argument, ... ) ||
 || *Return* || nill,[optional argument], string, number, ... ||
 || *Description* || function description ||
 || *Part of Library* || Table part ||
