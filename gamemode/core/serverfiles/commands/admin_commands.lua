@@ -10,46 +10,6 @@
     //                                                                                   //
     ///////////////////////////////////////////////////////////////////////////////////////
 	
-function AdminKick(plyOffender, strReason)
-
-	if !plyOffender:IsPlayer() then return end
-	
-	if !strReason or strReason == "" then strReason = "Don't do that again" end
-	
-	plyOffender:Kick(strReason)
-	
-end
-
-concommand.Add("UD_Admin_Kick", function(ply, command, args)
-
-	if ply:IsAdmin() then 
-	
-		AdminKick(player.GetByID(tonumber(args[1])), tostring(args[2]))
-		
-	end
-	
-end)
-
-function AdminBan(plyOffender, intTime, strReason)
-
-	if !plyOffender:IsPlayer() then return end
-	if !strReason or strReason == "" then strReason = "Don't do that again" end
-	
-	game.ConsoleCommand("banid ".. intTime .." "..plyOffender:SteamID().."\n")
-	
-	game.ConsoleCommand("kickid "..plyOffender:SteamID().." Banned for "..strReason or "Not defined".." \n")
-	
-end
-
-concommand.Add("UD_Admin_Ban", function(ply, command, args)
-
-	if ply:IsAdmin() then
-	
-		AdminBan(player.GetByID(tonumber(args[1])), tonumber(args[2]), tostring(args[3]))
-		
-	end
-	
-end)
 
 function GM:ChangeMapTimed(strNewMap, intChangeTime)
 
