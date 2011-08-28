@@ -1,7 +1,7 @@
 =Player.NewGame=
 || *Syntax* || Player.CreateNotification(Text string) ||
 || *Return* || nill ||
-|| *Description* || Create a personal notification. ||
+|| *Description* || Create a special personal notification. ||
 || *Part of Library* || Player ||
 || *Type* || Sharedfile||
 
