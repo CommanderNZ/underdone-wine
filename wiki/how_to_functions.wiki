@@ -1,6 +1,6 @@
 =How to add function on wiki=
 
-==Title name syntax : table_function==
+==table_function==
 
 <img src="http://underdone-wine.googlecode.com/svn/img/Underdone_Wine_Wiki_Function.png" />
 
