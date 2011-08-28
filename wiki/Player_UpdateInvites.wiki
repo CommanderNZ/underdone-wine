@@ -13,6 +13,4 @@
 
 ==See Also==
 
-[Player_GetAverageSquadLevel Player.GetAverageSquadLevel]
-
-[Player_GetAverageSquadLevel Player.IsInSquad]
+[Player_GetAverageSquadLevel Player.UpdateSquadTable]
