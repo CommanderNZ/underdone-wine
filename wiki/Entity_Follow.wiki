@@ -2,8 +2,8 @@
 || *Syntax* || Entity.Follow(Entity) ||
 || *Return* || nill ||
 || *Description* || Follow a position of Entity  ||
-|| *Part of Library* || Player ||
-|| *Type* || Serverside ||
+|| *Part of Library* || Entity ||
+|| *Type* || Shared ||
 || *File* || core\serverfiles\savingloading.lua ||
 
 ==Examples==
