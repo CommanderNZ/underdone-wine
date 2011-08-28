@@ -1,0 +1,14 @@
+==Player.UpdateSquadTable==
+
+|| *Syntax* || Player:UpdateSquadTable() ||
+|| *Return* || nill ||
+|| *Description* || Update or set Squad table ||
+|| *Part of Library* || Player ||
+|| *Type* || Shared ||
+|| *File* || core/sharedfiles/sh_squads.lua ||
+
+==Examples==
+
+==Additional Notes==
+
+==See Also==
