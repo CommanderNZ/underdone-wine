@@ -1,5 +1,4 @@
  * [Tasks]
- * [bugs Bugs]
  * [Functions_list Functions list]
  * [NamingConvention Naming Convention]
  * *How To*
