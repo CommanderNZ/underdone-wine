@@ -1,6 +1,6 @@
 ==Player.GetAverageSquadLevel==
 
-|| *Syntax* || Player.GetAverageSquadLevel() ||
+|| *Syntax* || Player:GetAverageSquadLevel() ||
 || *Return* || Integer ||
 || *Description* || This function set the level of the squad on the player with the highest level ||
 || *Part of Library* || Table part ||
