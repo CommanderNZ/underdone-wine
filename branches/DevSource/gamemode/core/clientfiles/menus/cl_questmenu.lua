@@ -151,7 +151,7 @@ function PANEL:SellectQuest(strQuest)
 	if tblQuestTable.GainedExp or 0 > 0 then
 	
 		self.QuestDescription:AddItem(CreateGenericLabel(nil, nil, tblQuestTable.GainedExp .. " Exp", clrDrakGray))
-		
+	end
 	local lstItemReward = nil
 	
 	for strItem, intAmount in pairs(tblQuestTable.GainedItems or {}) do
