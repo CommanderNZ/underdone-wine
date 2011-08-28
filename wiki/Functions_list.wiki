@@ -4,13 +4,13 @@
 
 ==Servside functions==
 ===Player===
-[Player_NewGame Player.NewGame()]
+[Player_NewGame Player.NewGame]
 
-[Player_LoadGame Player.LoadGame()]
+[Player_LoadGame Player.LoadGame]
 
-[Player_SaveGame Player.SaveGame()]
+[Player_SaveGame Player.SaveGame]
 
-[Player_SkillReset Player.SkillReset()]
+[Player_SkillReset Player.SkillReset]
 
 Player.SearchQuestProp
 
@@ -18,9 +18,9 @@ Player.SearchWorldProp
 
 Player.GiveExp
 
-[Player_RemoveItem Player.RemoveItem()]
+[Player_RemoveItem Player.RemoveItem]
 
-Player.CraftRecipe()
+Player.CraftRecipe
 
 ==Clientside functions==
 ==Player===
@@ -40,86 +40,86 @@ Player.GetMaxWeight
 
 Player.GetArmorRating
 
-[Player_CreateNotification Player.CreateNotification()]
+[Player_CreateNotification Player.CreateNotification]
 
-Player.ApplyBuffTable()
+Player.ApplyBuffTable
 
 ====Trade====
 
-Player.GetTrade()
+Player.GetTrade
 
-Player.GetTradeItem()
+Player.GetTradeItem
 
-Player.AddItemTrade()
+Player.AddItemTrade
 
 ====Stat====
 
-Player.AddStat()
+Player.AddStat
 
-Player.SetStat()
+Player.SetStat
 
-Player.GetStat()
+Player.GetStat
 
 ====Squad====
 
-Player.UpdateInvites()
+Player.UpdateInvites
 
-Player.UpdateSquadTable()
+Player.UpdateSquadTable
 
-Player.IsInSquad()
+Player.IsInSquad
 
-Player.GetAverageSquadLevel()
+Player.GetAverageSquadLevel
 
 ====Skill====
 
-Player.SetSkill()
+Player.SetSkill
 
-Player.GetSkill()
+Player.GetSkill
 
-Player.CanHaveSkill()
+Player.CanHaveSkill
 
-Player.HasSkill()
+Player.HasSkill
 
-Player.GetDeservedSkillPoints()
+Player.GetDeservedSkillPoints
 
-Player.CallSkillHook()
+Player.CallSkillHook
 
 ====Shops====
 
-Player.GetItemBuyPrice()
+Player.GetItemBuyPrice
 
 ====Recipe====
 
-Player.AddRecipe()
+Player.AddRecipe
 
-Player.HasRecipe()
+Player.HasRecipe
 
-Player.CanMake()
+Player.CanMake
 
 ====Quests====
 
-Player.AddQuest()
+Player.AddQuest
 
-Player.QuestItem()
+Player.QuestItem
 
-Player.HasCompletedQuest()
+Player.HasCompletedQuest
 
-Player.GetQuest()
+Player.GetQuest
 
-Player.UpdateQuest()
+Player.UpdateQuest
 
-Player.AddQuestKill()
+Player.AddQuestKill
 
-Player.CanAcceptQuest()
+Player.CanAcceptQuest
 
-Player.CanTurnInQuest()
+Player.CanTurnInQuest
 
 ===Entity===
 
-Entity.GetLevel()
+Entity.GetLevel
 
-Entity.CreateGrip()
+Entity.CreateGrip
 
-Entity.Stun()
+Entity.Stun
 
-Entity.IgniteFor()
+Entity.IgniteFor
