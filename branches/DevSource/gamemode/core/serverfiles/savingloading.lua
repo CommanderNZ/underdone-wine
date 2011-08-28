@@ -24,17 +24,9 @@ DB.elem = { ["Id"] = "",
 			["Friends"] = "",
 			["Exp"] = ""
 			}
-function DB.send(Table ) 
-
-	if !GM.Config then GM.Config = {} or GM.Config end
-	
-	if !GM.Config.DB then GM.Config.DB = {} or GM.Config.DB end
-	
-	if !GM.Config.DB.Type then GM.Config.DB.Type = "sqllite" or GM.Config.DB.Type end
-	
-
+			
+function checkTable(Table)
 	for k,v in pairs(DB.elem) do
-		
 		for ki,vi in pairs(Table) do
 		
 			if ki == k then
@@ -44,14 +36,54 @@ function DB.send(Table )
 			end
 		end
 	end
+	return Table
+end
+
+if !ValidEntity(GM.Config) then GM.Config = {} or GM.Config end
 	
+if !ValidEntity(GM.Config.DB) then GM.Config.DB = {} or GM.Config.DB end
 	
-	if GM.Config.DB.Type == "sqllite" then
+if !ValidEntity(GM.Config.DB.Type) then GM.Config.DB.Type = "sqllite" or GM.Config.DB.Type end
+	
+if GM.Config.DB.Type == "sqllite" then
+	
+	DB.send = function(Table, Player)
+
+		Table = checkTable(Table)
+		if sql.Query('SELECT Id WHERE Sid = `' .. Player .. '`') then
+			sql.Query('UPDATE ud_player SET `Name` = `' .. Player:Nick() .. '`, `Model` = `' .. Table.Model .. '`, `Inventory` = `' .. Table.Inventory .. '`, `Bank` = `' .. Table.Bank .. '`, `Quests` = `' .. Table.Quests .. '`, `Friends` = `' .. Table.Friends .. '`, `Exp` = `' .. Player:GetNWInt("exp") .. '` WHERE Sid = `' .. Player .. '`')
+		else
+			sql.Query('INSERT INTO ud_player (`Sid`, `Name`, `Model`, `Inventory`, `Bank`, `Quests`, `Friends`, `Exp`) VALUES(`' .. Player:Nick() .. '`, `' .. Table.Model .. '`, `' .. Table.Inventory .. '`, `' .. Table.Bank .. '`, `' .. Table.Quests .. '`, `' .. Table.Friends .. '`,  `' .. Player:GetNWInt("exp") .. '`)')
+		end
 		
-		if !sql.TableExists("ud_player") then
+	end
+	
+elseif GM.Config.GM.Type == "txt" then
+	
+	DB.send = function(Table)
+	
+		Table = checkTable(Table)
+		
+		local strSteamID = string.Replace(Table.Sid, ":", "!")
+		
+		if strSteamID != "STEAM_ID_PENDING" then
+		
+			local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 			
-			local Query = [[
-			CREATE TABLE `ud_player` (
+			Table.Exp = self:GetNWInt("exp")
+
+			file.Write(strFileName, Json.Encode(Table))
+			
+		end
+		
+	end
+	
+end
+
+hook.Add("InitPostEntity", "CreateTable", function()
+	if GM.Config.DB.Type == "sqllite" then
+		sql.Query([[
+			CREATE TABLE IF NOT EXIST`ud_player` (
 					`Id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 					`Sid` VARCHAR( 30 ) NOT NULL ,
 					`Name` VARCHAR( 25 ) NOT NULL ,
@@ -61,25 +93,9 @@ function DB.send(Table )
 					`Quests` TEXT NOT NULL ,
 					`Friends` TEXT NOT NULL ,
 					`Exp` TEXT NOT NULL
-					) ENGINE = MYISAM ;]]
-			sql.Query(Query)
-		end
-	elseif GM.Config.GM.Type == "txt" then
-	
-		local strSteamID = string.Replace(Table.Sid, ":", "!")
-		
-		if strSteamID != "STEAM_ID_PENDING" then
-		
-			local strFileName = "UnderDone/" .. strSteamID .. ".txt"
-			
-			tblSaveTable.Exp = self:GetNWInt("exp")
-			
-			file.Write(strFileName, Json.Encode(Table))
-			
-		end
-		
+					) ENGINE = MYISAM ;]])
 	end
-end
+end)
 
 function DB.get(Player) 
 	
