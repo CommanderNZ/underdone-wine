@@ -1,6 +1,6 @@
 =How to add function on wiki=
 
-==table_function==
+==Title name syntax : table_function==
 
 <img src="http://underdone-wine.googlecode.com/svn/img/Underdone_Wine_Wiki_Function.png" />
 
@@ -66,7 +66,7 @@ table.otherFunction()
 
 {{{
 
-==Title name syntax : table_function==
+==table_function==
 
 || *Syntax* || table.function( argument, ... ) ||
 || *Return* || nill,[optional argument], string, number, ... ||
