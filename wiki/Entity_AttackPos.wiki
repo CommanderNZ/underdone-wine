@@ -1,0 +1,13 @@
+=Entity.AttackPos=
+|| *Syntax* || Entity.AttackPos(Vector) ||
+|| *Return* || nill ||
+|| *Description* || Attack vector pos for NPC ||
+|| *Part of Library* || Player ||
+|| *Type* || Sharedfiles||
+|| *File* || core/sharedfiles/sh_entity.lua ||
+
+==Examples==
+
+==Additional Notes==
+
+==See Also==
