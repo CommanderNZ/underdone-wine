@@ -1,0 +1,14 @@
+==Player.SetSkill==
+
+|| *Syntax* || Player:SetSkill( skill:String, intAmount:Integer ) ||
+|| *Return* || nill ||
+|| *Description* || Set skill at number defined in arguments  ||
+|| *Part of Library* || Player ||
+|| *Type* || Shared ||
+|| *File* || core/sharedfiles/sh_skills.lua ||
+
+==Examples==
+
+==Additional Notes==
+
+==See Also==
