@@ -11,7 +11,3 @@
 ==Additional Notes==
 
 ==See Also==
-
-[Player_LoadGame Player.LoadGame()]
-
-[Player_SaveGame Player.SaveGame()]
