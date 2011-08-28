@@ -20,6 +20,10 @@ Player.GiveExp
 
 [Player_RemoveItem Player.RemoveItem()]
 
+===Entity===
+
+Entity.GetLevel()
+
 ==Clientside functions==
 ==Player===
 Player.FollowPlayer
