@@ -59,7 +59,9 @@ Type '*Trololoo*' + *var* in console
 ==Additional Notes==
 This function execute blabla
 ==See Also==
+
 table.otherFunction()
+
 table.otherFunction()
 
 ==Full Code==
