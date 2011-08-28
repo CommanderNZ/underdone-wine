@@ -13,4 +13,4 @@
 
 ==See Also==
 
-[Player_GetAverageSquadLevel Player.UpdateSquadTable]
+[Player_UpdateSquadTable Player.UpdateSquadTable]
