@@ -4,7 +4,7 @@
 || *Description* || Follow a position of Entity  ||
 || *Part of Library* || Entity ||
 || *Type* || Shared ||
-|| *File* || core\serverfiles\savingloading.lua ||
+|| *File* || core\sharedfiles\sh_entity.lua ||
 
 ==Examples==
 {{{
