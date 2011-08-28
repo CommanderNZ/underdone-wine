@@ -20,9 +20,7 @@ Player.GiveExp
 
 [Player_RemoveItem Player.RemoveItem()]
 
-===Entity===
-
-Entity.GetLevel()
+Player.CraftRecipe()
 
 ==Clientside functions==
 ==Player===
@@ -43,3 +41,85 @@ Player.GetMaxWeight
 Player.GetArmorRating
 
 [Player_CreateNotification Player.CreateNotification()]
+
+Player.ApplyBuffTable()
+
+====Trade====
+
+Player.GetTrade()
+
+Player.GetTradeItem()
+
+Player.AddItemTrade()
+
+====Stat====
+
+Player.AddStat()
+
+Player.SetStat()
+
+Player.GetStat()
+
+====Squad====
+
+Player.UpdateInvites()
+
+Player.UpdateSquadTable()
+
+Player.IsInSquad()
+
+Player.GetAverageSquadLevel()
+
+====Skill====
+
+Player.SetSkill()
+
+Player.GetSkill()
+
+Player.CanHaveSkill()
+
+Player.HasSkill()
+
+Player.GetDeservedSkillPoints()
+
+Player.CallSkillHook()
+
+====Shops====
+
+Player.GetItemBuyPrice()
+
+====Recipe====
+
+Player.AddRecipe()
+
+Player.HasRecipe()
+
+Player.CanMake()
+
+====Quests====
+
+Player.AddQuest()
+
+Player.QuestItem()
+
+Player.HasCompletedQuest()
+
+Player.GetQuest()
+
+Player.UpdateQuest()
+
+Player.AddQuestKill()
+
+Player.CanAcceptQuest()
+
+Player.CanTurnInQuest()
+
+===Entity===
+
+Entity.GetLevel()
+
+Entity.CreateGrip()
+
+Entity.Stun()
+
+Entity.IgniteFor()
