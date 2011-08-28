@@ -12,7 +12,3 @@
 ==Additional Notes==
 
 ==See Also==
-
-[Player_GetAverageSquadLevel Player.GetAverageSquadLevel]
-
-[Player_UpdateInvites Player.UpdateInvites]
