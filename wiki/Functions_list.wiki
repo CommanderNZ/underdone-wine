@@ -22,11 +22,17 @@ Player.GiveExp
 
 Player.CraftRecipe
 
+===Entity===
+
+Entity.SetServerScale
+
 ==Clientside functions==
 ==Player===
 Player.FollowPlayer
 
 Player.StopFollowing
+
+
 
 ==Shared functions==
 ===Player===
@@ -123,3 +129,23 @@ Entity.CreateGrip
 Entity.Stun
 
 Entity.IgniteFor
+
+Entity.IsBuilding
+
+Entity.IsPet
+
+Entity.Idle
+
+Entity.IsIdle
+
+Entity.Follow
+
+Entity.IsFollowing
+
+Entity.ReturnSpawn
+
+Entity.AttackPos
+
+Entity.AttackEnemy
+
+Entity.IsBlocked
