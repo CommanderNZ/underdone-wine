@@ -6,7 +6,7 @@
     // | |__| | | | | (_| |  __/ | | (_| | (_) | | | |  __/    \  /\  /  | | | | |  __/  //
     //  \____/|_| |_|\__,_|\___|_|  \__,_|\___/|_| |_|\___|     \/  \/   |_|_| |_|\___|  //
     //                                                                                   //
-    //       Last edit : Batman06                                                        //
+    //       Last edit : Sandros and Slayer	                                             //
     //                                                                                   //
     ///////////////////////////////////////////////////////////////////////////////////////
 	
@@ -26,10 +26,13 @@ DB.elem = { ["Id"] = "",
 			}
 			
 function checkTable(Table)
+
 	for k,v in pairs(DB.elem) do
+	
 		for ki,vi in pairs(Table) do
 		
 			if ki == k then
+			
 				Table[ki] = vi
 			else
 				Table[ki] = v
@@ -50,12 +53,34 @@ if GM.Config.DB.Type == "sqllite" then
 	DB.send = function(Table, Player)
 
 		Table = checkTable(Table)
-		if sql.Query('SELECT Id WHERE Sid = `' .. Player .. '`') then
-			sql.Query('UPDATE ud_player SET `Name` = `' .. Player:Nick() .. '`, `Model` = `' .. Table.Model .. '`, `Inventory` = `' .. Table.Inventory .. '`, `Bank` = `' .. Table.Bank .. '`, `Quests` = `' .. Table.Quests .. '`, `Friends` = `' .. Table.Friends .. '`, `Exp` = `' .. Player:GetNWInt("exp") .. '` WHERE Sid = `' .. Player .. '`')
+		
+		if sql.Query('SELECT Id WHERE Sid = `' .. Player:SteamID() .. '`') then
+		
+			sql.Query('UPDATE ud_player SET `Name` = `' .. Table.Name .. '`,`Model` = `' .. Table.Model .. '`, `Inventory` = `' .. Json.Encode(Table.Inventory) .. '`, `Bank` = `' .. Json.Encode(Table.Bank) .. '`, `Quests` = `' .. Json.Encode(Table.Quests) .. '`, `Friends` = `' .. Json.Encode(Table.Friends) .. '`, `Exp` = `' .. Player:GetNWInt("exp") .. '` WHERE Sid = `' .. Player:SteamID() .. '`')
 		else
-			sql.Query('INSERT INTO ud_player (`Sid`, `Name`, `Model`, `Inventory`, `Bank`, `Quests`, `Friends`, `Exp`) VALUES(`' .. Player:Nick() .. '`, `' .. Table.Model .. '`, `' .. Table.Inventory .. '`, `' .. Table.Bank .. '`, `' .. Table.Quests .. '`, `' .. Table.Friends .. '`,  `' .. Player:GetNWInt("exp") .. '`)')
+			
+			sql.Query('INSERT INTO ud_player (`Sid`, `Name`, `Model`, `Inventory`, `Bank`, `Quests`, `Friends`, `Exp`) VALUES(`' .. Table.Name .. '`, `' .. Table.Model .. '`, `' .. Json.Encode(Table.Inventory) .. '`, `' .. Json.Encode(Table.Bank) .. '`, `' .. Json.Encode(Table.Quests) .. '`, `' .. Json.Encode(Table.Friends) .. '`,  `' .. Player:GetNWInt("exp") .. '`)')
 		end
 		
+	end
+	
+	DB.get = function(Player)
+	
+	local result = sql.Query( "SELECT * FROM ud_player WHERE Sid = ".. Player:SteamID())
+ 
+	if ( !result ) then return false end
+	
+		local tblTreat = DB.elem or {} 
+		
+		for k,v in pairs(DB.elem) do
+		
+			if k == "Inventory" or k == "Bank" or k == "Quests" or k == "Friends" then
+			
+				tblTreat[k] = Json.Decode(result[1][k]) 
+			else
+				tblTreat[k] = result[1][k] 
+			end
+		end
 	end
 	
 elseif GM.Config.GM.Type == "txt" then
@@ -97,10 +122,7 @@ hook.Add("InitPostEntity", "CreateTable", function()
 	end
 end)
 
-function DB.get(Player) 
-	
-	
-end
+
 
 
 function Player:NewGame()
