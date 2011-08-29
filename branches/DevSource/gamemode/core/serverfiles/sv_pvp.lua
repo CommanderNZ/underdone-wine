@@ -88,9 +88,9 @@ local function PlayerAdjustDamage(entVictim, entInflictor, entAttacker, intAmoun
 	
 	if entAttacker:IsPlayer() then
 	
-		if !entVictim.Data.Challenge and !entAttacker.Data.Challenge then return tblDamageInfo:SetDamage(0)  end
+		if !entVictim.Data.Challenge and !entAttacker.Data.Challenge then  tblDamageInfo:SetDamage(0) return end
 
-		if entVictim.Data.Challenge.Enemy != entAttacker.Data.Challenge.Enemy then tblDamageInfo:SetDamage(0)   -- Il ne sont pas en défi
+		if entVictim.Data.Challenge.Enemy != entAttacker.Data.Challenge.Enemy then tblDamageInfo:SetDamage(0) return  -- Il ne sont pas en défi
 
 		else
 			if entVictim.Data.Challenge.Time != entAttacker.Data.Challenge.Time then 
@@ -101,15 +101,15 @@ local function PlayerAdjustDamage(entVictim, entInflictor, entAttacker, intAmoun
 			
 		end 
 
-		if os.time - entVictim.Data.Challenge.Time > 600 then tblDamageInfo:SetDamage(0)  end
+		if os.time - entVictim.Data.Challenge.Time > 600 then tblDamageInfo:SetDamage(0) return  end
 
-		if entVictim.Data.Challenge.Finish == 1 then tblDamageInfo:SetDamage(0) 
+		if entVictim.Data.Challenge.Finish == 1 then tblDamageInfo:SetDamage(0) return 
 
 		else
 
 			if entVictim.Data.Challenge.Finish != entAttacker.Data.Challenge.Finish then
 			
-				 tblDamageInfo:SetDamage(0)  -- Utilisation de fail ! Exemple défier une personne puis une autre enfin a voir ! 
+				 tblDamageInfo:SetDamage(0) return -- Utilisation de fail ! Exemple défier une personne puis une autre enfin a voir ! 
 				 
 			end
 			
