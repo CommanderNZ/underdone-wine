@@ -2,7 +2,8 @@
 
 = Commiter =
 
-* ??
+* Alexandre.sandros
+* Robin.prette
 
 
 = Details =
