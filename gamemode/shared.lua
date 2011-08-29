@@ -23,8 +23,8 @@ clrCream = Color(245, 255, 154, 255)
 clrMooca = Color(107, 97, 78, 255)
 clrWhite = Color(242, 242, 242, 255)
 ---------Generic---------
-GM.Name 		= "Underdone"
-GM.Author 		= "Underdone Team, Sandros, Slay3r, Batman06, Gizmo, Blast"
+GM.Name 		= "Underdone Wine"
+GM.Author 		= "Underdone Wine Team, Sandros, Slay3r, Batman06, Gizmo, Blast"
 GM.Email 		= "http://code.google.com/p/underdone-wine/people/list"
 GM.Website 		= "http://code.google.com/p/underdone-wine/"
 GM.MaxSlots		= 20
