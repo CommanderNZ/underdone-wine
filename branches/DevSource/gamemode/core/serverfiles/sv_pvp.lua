@@ -14,34 +14,7 @@
 
 --[[
 
-	if !entVictim.Data.Challenge then return end
 
-	if !entAttacker.Data.Challenge then return end
-
-	if entVictim.Data.Challenge.Enemy != entAttacker.Data.Challenge.Enemy then return  -- Il ne sont pas en défi
-
-	else
-		if entVictim.Data.Challenge.Time != entAttacker.Data.Challenge.Time then 
-		
-			 entVictim.Data.Challenge.Time = entAttacker.Data.Challenge.Time  -- Syncronisation des date au cas il y a un décalage 
-			 
-		end
-		
-	end 
-
-	if os.time - entVictim.Data.Challenge.Time > 600 then return end
-
-	if entVictim.Data.Challenge.Finish == 1 then return
-
-	else
-
-		if entVictim.Data.Challenge.Finish != entAttacker.Data.Challenge.Finish then
-		
-			 return -- Utilisation de fail ! Exemple défier une personne puis une autre enfin a voir ! 
-			 
-		end
-		
-	end
 
 ]]--
 
@@ -93,7 +66,7 @@ local function getAdujstDamage( entVictim, tblDamageInfo )
 		entVictim:CreateIndacator(tblDamageInfo:GetDamage(), tblDamageInfo:GetDamagePosition(), clrDisplayColor)
 		
 	else
-			
+		
 		entVictim:CreateIndacator("Miss!", tblDamageInfo:GetDamagePosition(), "orange")
 			
 	end
@@ -102,7 +75,7 @@ end
 	
 local function PlayerAdjustDamage(entVictim, entInflictor, entAttacker, intAmount, tblDamageInfo)
 	
-	if !entVictim:IsPlayer() then return end
+	if !entVictim:IsPlayer() then tblDamageInfo:SetDamage(0)  end
 	
 	if !entAttacker:IsPlayer() && entAttacker:GetOwner():IsPlayer() then
 		
@@ -114,8 +87,37 @@ local function PlayerAdjustDamage(entVictim, entInflictor, entAttacker, intAmoun
 	local tblNPCTable = NPCTable(entAttacker:GetNWString("npc"))
 	
 	if entAttacker:IsPlayer() then
+	
+		if !entVictim.Data.Challenge then tblDamageInfo:SetDamage(0)  end
+
+		if !entAttacker.Data.Challenge then tblDamageInfo:SetDamage(0)  end
+
+		if entVictim.Data.Challenge.Enemy != entAttacker.Data.Challenge.Enemy then tblDamageInfo:SetDamage(0)   -- Il ne sont pas en défi
+
+		else
+			if entVictim.Data.Challenge.Time != entAttacker.Data.Challenge.Time then 
+			
+				 entVictim.Data.Challenge.Time = entAttacker.Data.Challenge.Time  -- Syncronisation des date au cas il y a un décalage 
+				 
+			end
+			
+		end 
+
+		if os.time - entVictim.Data.Challenge.Time > 600 then tblDamageInfo:SetDamage(0)  end
+
+		if entVictim.Data.Challenge.Finish == 1 then tblDamageInfo:SetDamage(0) 
+
+		else
+
+			if entVictim.Data.Challenge.Finish != entAttacker.Data.Challenge.Finish then
+			
+				 tblDamageInfo:SetDamage(0)  -- Utilisation de fail ! Exemple défier une personne puis une autre enfin a voir ! 
+				 
+			end
+			
+		end
 		
-		tblDamageInfo:SetDamage(0)
+		getAdjustDamage(entVictim,entInflictor)
 	end
 	
 	if tblNPCTable then
