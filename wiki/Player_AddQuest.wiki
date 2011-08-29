@@ -5,7 +5,7 @@
 || *Description* || Add quest ||
 || *Part of Library* || Player ||
 || *Type* || Shared ||
-|| *File* || core/sharedfiles/sh_recipes.lua ||
+|| *File* || core/sharedfiles/sh_quest.lua ||
 
 ==Examples==
 
