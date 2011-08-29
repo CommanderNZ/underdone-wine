@@ -18,12 +18,14 @@ DB.elem = { ["Id"] = "",
 			["Sid"] = "STEAM_ID_PENDING",
 			["Name"] = "",
 			["Model"] = "",
-			["Inventory"] = "",
-			["Paperdoll"] = "",
-			["Skills"] = "",
-			["Bank"] = "",
-			["Quests"] = "",
-			["Friends"] = "",
+			["Inventory"] = {},
+			["Paperdoll"] = {},
+			["Skills"] =  {},
+			["Bank"] = {},
+			["Library"] = {},
+			["Quests"] = {},
+			["Friends"] = {},
+			["Masters"] = {},
 			["Exp"] = ""
 			}
 			
@@ -33,7 +35,9 @@ function checkTable(Table)
 	
 		if !Table[k] then Table[k] = v end
 	end
+	PrintTable(Table)
 	return Table
+
 end
 
 if !GM.Config then GM.Config = {} or GM.Config end
@@ -53,12 +57,12 @@ if GM.Config.DB.Type == "sqllite" then
 
 		if sql.Query("SELECT Id,Sid FROM ud_player WHERE Sid = '" .. Player:SteamID() .. "'")  then
 			
-			sql.Query('UPDATE ud_player SET Name = \'' .. Table.Name .. '\',Model = \'' .. Table.Model .. '\', Inventory = \'' .. Json.Encode(Table.Inventory) .. '\',Paperdoll = \''.. Json.Encode(Table.Paperdoll) ..'\' ,Skills = \'' ..Json.Encode(Table.Skills) .. '\' , Bank = \'' .. Json.Encode(Table.Bank) .. '\', Quests = \'' .. Json.Encode(Table.Quests) .. '\', Friends = \'' .. Json.Encode(Table.Friends) .. '\', Exp = \'' .. Player:GetNWInt('exp') .. '\' WHERE Sid = \'' .. Player:SteamID() .. '\'  ')
+			sql.Query('UPDATE ud_player SET Name = ' .. sql.SQLStr(Table.Name) .. ',Model = \'' .. Table.Model .. '\', Inventory = \'' .. Json.Encode(Table.Inventory) .. '\',Paperdoll = \''.. Json.Encode(Table.Paperdoll) ..'\' ,Skills = \'' ..Json.Encode(Table.Skills) .. '\' , Bank = \'' .. Json.Encode(Table.Bank) .. '\', Library = \'' .. Json.Encode(Table.Library) .. '\', Quests = \'' .. Json.Encode(Table.Quests) .. '\', Friends = \'' .. Json.Encode(Table.Friends) .. '\', Masters = \'' .. Json.Encode(Table.Masters) .. '\',  Exp = \'' .. Player:GetNWInt('exp') .. '\' WHERE Sid = \'' .. Player:SteamID() .. '\'  ')
 			
 			
 		else
 			
-			sql.Query('INSERT INTO ud_player ( `Sid`, `Name`, `Model`, `Inventory`,`Paperdoll`, `Skills`, `Bank`, `Quests`, `Friends`, `Exp`) VALUES(\''.. Player:SteamID() ..'\', \'' .. Table.Name .. '\', \'' .. Table.Model .. '\', \'' .. Json.Encode(Table.Inventory) .. '\', \'' .. Json.Encode(Table.Paperdoll) .. '\', \'' .. Json.Encode(Table.Skills) .. '\', \'' .. Json.Encode(Table.Bank) .. '\', \'' .. Json.Encode(Table.Quests) .. '\', \'' .. Json.Encode(Table.Friends) .. '\',  \'' .. Player:GetNWInt('exp') .. '\') ')
+			sql.Query('INSERT INTO ud_player ( `Sid`, `Name`, `Model`, `Inventory`,`Paperdoll`, `Skills`, `Bank`,`Library` , `Quests`, `Friends`, `Masters`, `Exp`) VALUES(\''.. Player:SteamID() ..'\', ' ..sql.SQLStr(Table.Name) .. ', \'' .. Table.Model .. '\', \'' .. Json.Encode(Table.Inventory) .. '\', \'' .. Json.Encode(Table.Paperdoll) .. '\', \'' .. Json.Encode(Table.Skills) .. '\', \'' .. Json.Encode(Table.Bank) .. '\', \'' .. Json.Encode(Table.Library) .. '\' , \'' .. Json.Encode(Table.Quests) .. '\', \'' .. Json.Encode(Table.Friends) .. '\', \'' .. Json.Encode(Table.Masters) .. '\' ,\'' .. Player:GetNWInt('exp') .. '\') ')
 			
 		end
 	
@@ -74,7 +78,7 @@ if GM.Config.DB.Type == "sqllite" then
 		
 		for k,v in pairs(DB.elem) do
 		
-			if k == "Inventory" or k == "Bank" or k == "Paperdoll" or k == "Skills" or k == "Quests" or k == "Friends" then
+			if k == "Inventory" or k == "Bank" or k == "Paperdoll" or k == "Skills" or k == "Quests" or k == "Friends" or k == "Library" or k == "Masters" then
 			
 				tblTreat[k] = Json.Decode(result[1][k]) 
 			else
@@ -141,8 +145,10 @@ hook.Add("InitPostEntity", "CreateTable_underdone", function()
 			`Paperdoll` TEXT NOT NULL ,
 			`Skills` TEXT NOT NULL ,
 			`Bank` TEXT NOT NULL ,
+			`Library` TEXT NOT  NULL,
 			`Quests` TEXT NOT NULL ,
 			`Friends` TEXT NOT NULL ,
+			`Masters` TEXT NOT NULL ,
 			`Exp` TEXT NOT NULL,
 			PRIMARY KEY(id)
 			)  ]]) 
