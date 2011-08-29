@@ -114,7 +114,7 @@ Player.[Player_GetSkill GetSkill]
 
 Player.[Player_CanHaveSkill CanHaveSkill]
 
-Player.[Player_HasSkill HasSkill]
+Player.[Player_HasSkill HasSkill] (*Need Change*)
 
 Player.[Player_GetDeservedSkillPoints GetDeservedSkillPoints]
 
