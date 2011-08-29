@@ -48,26 +48,57 @@
 
 function GM:PlayerDeath(victim, weapon, killer)
 		
-		victim:Freeze(true)
-		timer.Simple(10, function()
+	victim:Freeze(true)
+	timer.Simple(10, function()
+		
+		if ValidEntity(victim) then
 			
-			if ValidEntity(victim) then
-				
-				victim:Freeze(false) 
-				victim:ConCommand("+attack")
-				timer.Simple(0.1, function() if ValidEntity(victim) then victim:ConCommand("-attack") end end)
-			
-			end
-		end)
-		if killer:IsNPC() && victim:IsPlayer() then
-			
-			if killer.Race == victim.Race then
-				
-				killer:AddEntityRelationship(victim, GAMEMODE.RelationLike, 99)
-			end
+			victim:Freeze(false) 
+			victim:ConCommand("+attack")
+			timer.Simple(0.1, function() if ValidEntity(victim) then victim:ConCommand("-attack") end end)
+		
 		end
+		
+	end)
+	
+	if killer:IsNPC() && victim:IsPlayer() then
+		
+		if killer.Race == victim.Race then
+			
+			killer:AddEntityRelationship(victim, GAMEMODE.RelationLike, 99)
+		end
+		
+	end
+		
+end
+
+local function getAdujstDamage( entVictim, tblDamageInfo )
+
+	tblDamageInfo:SetDamage(math.Round(tblDamageInfo:GetDamage() * (1 / entVictim:GetNWInt("level"))))	
+	
+	if math.random(1, math.Round(20 / (1 + (entAttacker:GetStat("stat_luck") / 50)))) == 1 then
+	
+		tblDamageInfo:SetDamage(math.Round(tblDamageInfo:GetDamage() * 2))
+		
+		entAttacker:CreateIndacator("Crit!", tblDamageInfo:GetDamagePosition(), "blue", true)
+		
+		clrDisplayColor = "blue"
+		
 	end
 	
+	local clrDisplayColor = "red"
+	
+	if tblDamageInfo:GetDamage() > 0 then
+			
+		entVictim:CreateIndacator(tblDamageInfo:GetDamage(), tblDamageInfo:GetDamagePosition(), clrDisplayColor)
+		
+	else
+			
+		entVictim:CreateIndacator("Miss!", tblDamageInfo:GetDamagePosition(), "orange")
+			
+	end
+
+end
 	
 local function PlayerAdjustDamage(entVictim, entInflictor, entAttacker, intAmount, tblDamageInfo)
 	
