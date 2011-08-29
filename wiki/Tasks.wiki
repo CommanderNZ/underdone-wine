@@ -1,6 +1,7 @@
 = Tasks =
 
- * [Sql_migration Sql Migration]
+ * ~~[Sql_migration Sql Migration]~~ *Done*
+ * Add mysql
  * ~~Change Glon by Json~~ *Done*
  * Character maker system
  * [PvP Player vs Player (PVP) system]
