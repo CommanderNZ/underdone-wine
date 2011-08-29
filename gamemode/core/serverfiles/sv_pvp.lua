@@ -88,9 +88,7 @@ local function PlayerAdjustDamage(entVictim, entInflictor, entAttacker, intAmoun
 	
 	if entAttacker:IsPlayer() then
 	
-		if !entVictim.Data.Challenge then tblDamageInfo:SetDamage(0)  end
-
-		if !entAttacker.Data.Challenge then tblDamageInfo:SetDamage(0)  end
+		if !entVictim.Data.Challenge and !entAttacker.Data.Challenge then return tblDamageInfo:SetDamage(0)  end
 
 		if entVictim.Data.Challenge.Enemy != entAttacker.Data.Challenge.Enemy then tblDamageInfo:SetDamage(0)   -- Il ne sont pas en défi
 
