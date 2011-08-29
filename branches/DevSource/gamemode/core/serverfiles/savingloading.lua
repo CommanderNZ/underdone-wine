@@ -19,6 +19,8 @@ DB.elem = { ["Id"] = "",
 			["Name"] = "",
 			["Model"] = "",
 			["Inventory"] = "",
+			["Paperdoll"] = "",
+			["Skills"] = "",
 			["Bank"] = "",
 			["Quests"] = "",
 			["Friends"] = "",
@@ -29,45 +31,42 @@ function checkTable(Table)
 
 	for k,v in pairs(DB.elem) do
 	
-		for ki,vi in pairs(Table) do
-		
-			if ki == k then
-			
-				Table[ki] = vi
-			else
-				Table[ki] = v
-			end
-		end
+		if !Table[k] then Table[k] = v end
 	end
 	return Table
 end
 
-if !ValidEntity(GM.Config) then GM.Config = {} or GM.Config end
+if !GM.Config then GM.Config = {} or GM.Config end
 	
-if !ValidEntity(GM.Config.DB) then GM.Config.DB = {} or GM.Config.DB end
+if !GM.Config.DB then GM.Config.DB = {} or GM.Config.DB end
 	
-if !ValidEntity(GM.Config.DB.Type) then GM.Config.DB.Type = "sqllite" or GM.Config.DB.Type end
+if !GM.Config.DB.Type then GM.Config.DB.Type = "sqllite" or GM.Config.DB.Type end
 	
 if GM.Config.DB.Type == "sqllite" then
 	
 	DB.send = function(Table, Player)
-	
+		
+		
 		Table = checkTable(Table)
+		
 		if Table.Sid == Player:SteamID() then Table.Sid = Player:SteamID() end
-		
-		if sql.Query('SELECT Id WHERE Sid = `' .. Player:SteamID() .. '`') then
-		
-			sql.Query('UPDATE ud_player SET `Name` = `' .. Table.Name .. '`,`Model` = `' .. Table.Model .. '`, `Inventory` = `' .. Json.Encode(Table.Inventory) .. '`, `Bank` = `' .. Json.Encode(Table.Bank) .. '`, `Quests` = `' .. Json.Encode(Table.Quests) .. '`, `Friends` = `' .. Json.Encode(Table.Friends) .. '`, `Exp` = `' .. Player:GetNWInt("exp") .. '` WHERE Sid = `' .. Player:SteamID() .. '`')
+
+		if sql.Query("SELECT Id,Sid FROM ud_player WHERE Sid = '" .. Player:SteamID() .. "'")  then
+			
+			sql.Query('UPDATE ud_player SET Name = \'' .. Table.Name .. '\',Model = \'' .. Table.Model .. '\', Inventory = \'' .. Json.Encode(Table.Inventory) .. '\',Paperdoll = \''.. Json.Encode(Table.Paperdoll) ..'\' ,Skills = \'' ..Json.Encode(Table.Skills) .. '\' , Bank = \'' .. Json.Encode(Table.Bank) .. '\', Quests = \'' .. Json.Encode(Table.Quests) .. '\', Friends = \'' .. Json.Encode(Table.Friends) .. '\', Exp = \'' .. Player:GetNWInt('exp') .. '\' WHERE Sid = \'' .. Player:SteamID() .. '\'  ')
+			
+			
 		else
 			
-			sql.Query('INSERT INTO ud_player (`Sid`, `Name`, `Model`, `Inventory`, `Bank`, `Quests`, `Friends`, `Exp`) VALUES(`' .. Table.Name .. '`, `' .. Table.Model .. '`, `' .. Json.Encode(Table.Inventory) .. '`, `' .. Json.Encode(Table.Bank) .. '`, `' .. Json.Encode(Table.Quests) .. '`, `' .. Json.Encode(Table.Friends) .. '`,  `' .. Player:GetNWInt("exp") .. '`)')
+			sql.Query('INSERT INTO ud_player ( `Sid`, `Name`, `Model`, `Inventory`,`Paperdoll`, `Skills`, `Bank`, `Quests`, `Friends`, `Exp`) VALUES(\''.. Player:SteamID() ..'\', \'' .. Table.Name .. '\', \'' .. Table.Model .. '\', \'' .. Json.Encode(Table.Inventory) .. '\', \'' .. Json.Encode(Table.Paperdoll) .. '\', \'' .. Json.Encode(Table.Skills) .. '\', \'' .. Json.Encode(Table.Bank) .. '\', \'' .. Json.Encode(Table.Quests) .. '\', \'' .. Json.Encode(Table.Friends) .. '\',  \'' .. Player:GetNWInt('exp') .. '\') ')
+			
 		end
-		
+	
 	end
 	
 	DB.get = function(Player)
-	
-	local result = sql.Query( "SELECT * FROM ud_player WHERE Sid = ".. Player:SteamID())
+
+	local result = sql.Query( "SELECT * FROM ud_player WHERE Sid = '".. Player:SteamID().."'")
  
 	if ( !result ) then return false end
 	
@@ -75,7 +74,7 @@ if GM.Config.DB.Type == "sqllite" then
 		
 		for k,v in pairs(DB.elem) do
 		
-			if k == "Inventory" or k == "Bank" or k == "Quests" or k == "Friends" then
+			if k == "Inventory" or k == "Bank" or k == "Paperdoll" or k == "Skills" or k == "Quests" or k == "Friends" then
 			
 				tblTreat[k] = Json.Decode(result[1][k]) 
 			else
@@ -86,7 +85,7 @@ if GM.Config.DB.Type == "sqllite" then
 		return tblTreat
 	end
 	
-elseif GM.Config.GM.Type == "txt" then
+elseif GM.Config.DB.Type == "txt" then
 	
 	DB.send = function(Table, Player)
 		
@@ -109,13 +108,13 @@ elseif GM.Config.GM.Type == "txt" then
 	DB.get = function(Player)
 	
 		local strSteamID = string.Replace(Player:SteamID(), ":", "!") 
-
+		print(string.Replace(Player:SteamID(), ":", "!") )
 		if strSteamID != "STEAM_ID_PENDING" then
 
 			local strFileName = "UnderDone/" .. strSteamID .. ".txt"
 			
 			if file.Exists(strFileName) then
-			
+				
 				return Json.Decode(file.Read(strFileName))
 				
 			else
@@ -129,20 +128,25 @@ elseif GM.Config.GM.Type == "txt" then
 	end
 end
 
-hook.Add("InitPostEntity", "CreateTable", function()
+hook.Add("InitPostEntity", "CreateTable_underdone", function()
 	if GAMEMODE.Config.DB.Type == "sqllite" then
-		sql.Query([[
-			CREATE TABLE IF NOT EXIST`ud_player` (
-					`Id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-					`Sid` VARCHAR( 30 ) NOT NULL ,
-					`Name` VARCHAR( 25 ) NOT NULL ,
-					`Model` TEXT NOT NULL ,
-					`Inventory` TEXT NOT NULL ,
-					`Bank` TEXT NOT NULL ,
-					`Quests` TEXT NOT NULL ,
-					`Friends` TEXT NOT NULL ,
-					`Exp` TEXT NOT NULL
-					) ENGINE = MYISAM ;]])
+	
+	sql.Query([[
+			CREATE TABLE IF NOT EXISTS `ud_player` (
+			`Id` INTEGER NOT NULL  ,
+			`Sid` VARCHAR( 30 ) NOT NULL ,
+			`Name` VARCHAR( 25 ) NOT NULL ,
+			`Model` TEXT NOT NULL ,
+			`Inventory` TEXT NOT NULL ,
+			`Paperdoll` TEXT NOT NULL ,
+			`Skills` TEXT NOT NULL ,
+			`Bank` TEXT NOT NULL ,
+			`Quests` TEXT NOT NULL ,
+			`Friends` TEXT NOT NULL ,
+			`Exp` TEXT NOT NULL,
+			PRIMARY KEY(id)
+			)  ]]) 
+
 	end
 end)
 
@@ -178,7 +182,7 @@ function Player:NewGame()
 	
 	self:SaveGame()
 	
-	print("New Game")
+	
 	
 end
 
@@ -210,8 +214,9 @@ function Player:LoadGame()
 		
 	end]]--
 	tblDecodedTable = DB.get(self) 
+	
 	if tblDecodedTable == false then
-		
+		tblDecodedTable = {}
 		self:NewGame()
 	end
 	
