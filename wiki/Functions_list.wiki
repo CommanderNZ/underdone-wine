@@ -150,6 +150,8 @@ Player.[Player_CanAcceptQuest CanAcceptQuest]
 
 Player.[Player_CanTurnInQuest CanTurnInQuest]
 
+----
+
 Player.[Player_HasSet HasSet]
 
 Player.[Player_SetPaperDoll SetPaperDoll]
