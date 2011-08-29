@@ -14,8 +14,35 @@
 
 local function PlayerAdjustDamage (entVictim, entInflictor, entAttacker, intAmount, tblDamageInfo)
 
+if !entVictim.Data.Challenge then return end
 
+if !entAttacker.Data.Challenge then return end
 
+if entVictim.Data.Challenge.Enemy != entAttacker.Data.Challenge.Enemy then return  -- Il ne sont pas en défi
+
+else
+	if entVictim.Data.Challenge.Time != entAttacker.Data.Challenge.Time then 
+	
+		 entVictim.Data.Challenge.Time = entAttacker.Data.Challenge.Time  -- Syncronisation des date au cas il y a un décalage 
+		 
+	end
+	
+end 
+
+if os.time - entVictim.Data.Challenge.Time > 600 then return end
+
+if entVictim.Data.Challenge.Finish == 1 then return
+
+else
+
+	if entVictim.Data.Challenge.Finish != entAttacker.Data.Challenge.Finish then
+	
+		 return -- Utilisation de fail ! Exemple défier une personne puis une autre enfin a voir ! 
+		 
+	end
+	
+end
 
 end
+
 hook.Add("EntityTakeDamage", "PlayerAdjustDamage", PlayerAdjustDamage)
