@@ -12,8 +12,8 @@
 <code>
 language = {}
 language.french = {
-   say_hello = "bonjour",
-   name_exp = "experience"
+   say_hello = [[Bonjour]],
+   name_exp = [[experience]]
 }
 mainlangage = langage`[`GM.Config.lang]
 
