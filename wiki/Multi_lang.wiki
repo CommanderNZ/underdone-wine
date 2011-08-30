@@ -12,9 +12,10 @@
 <code>
 language = {}
 language.french = {
-   hello = "bonjour",
-   exp = "experience"
+   say_hello = "bonjour",
+   name_exp = "experience"
 }
 mainlangage = langage`[`GM.Config.lang]
 
 </code>
+_The table keys must read the action and not the sortcut of the message_
