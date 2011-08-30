@@ -35,7 +35,7 @@ function checkTable(Table)
 	
 		if !Table[k] then Table[k] = v end
 	end
-	PrintTable(Table)
+	
 	return Table
 
 end
