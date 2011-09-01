@@ -75,3 +75,16 @@ local function getAdujstDamage( entVictim, tblDamageInfo )
 	end
 
 end
+
+
+local function PlayerDamagePlayer(entVictim, entInflictor, entAttacker, intAmount, tblDamageInfo)
+
+	if !entVictim:IsPlayer() then return end
+	
+	if !entAttacker:IsPlayer() then return end
+	
+	print("attack player")
+	
+end
+
+hook.Add("EntityTakeDamage", "PlayerAdjustDamage", PlayerDamagePlayer)
