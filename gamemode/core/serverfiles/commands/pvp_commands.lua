@@ -16,16 +16,18 @@ concommand.Add("UD_InviteChallenge", function(ply, command, args)
 	local plyPlayer = player.GetByID(tonumber(args[1]))
 	
 	if !ValidEntity(ply) || !ValidEntity(plyPlayer) then return false end
+	if !ply:IsPlayer() or plyPlayer:IsPlayer() then return end
 	
 	ply.Data = ply.Data or {}
 	ply.Data.Challenge = ply.Data.Challenge or {}
+	ply.Data.Challenge.Propose = plyPlayer 
 	
 	plyPlayer.Data = plyPlayer.Data or {}
 	plyPlayer.Data.Challenge = plyPlayer.Data.Challenge or {}
 	
-	if  os.time-tonumber(ply.Data.Challenge.Time) >= 600 and ply.Data.Challenge.Finish == false then ply:CreateNotification("You are in challenge.") return end 
+	if  os.time()-tonumber(ply.Data.Challenge.Time) >= 600 and ply.Data.Challenge.Finish == false then ply:CreateNotification("You are in challenge.") return end 
 	
-	if  os.time-tonumber(plyPlayer.Data.Challenge.Time) >= 600 and plyPlayer.Data.Challenge.Finish == false then ply:CreateNotification("He is in challenge.") return end 
+	if  os.time()-tonumber(plyPlayer.Data.Challenge.Time) >= 600 and plyPlayer.Data.Challenge.Finish == false then ply:CreateNotification("He is in challenge.") return end 
 	
 	
 	plyPlayer:InviteToChallenge(ply)
@@ -38,9 +40,14 @@ concommand.Add("UD_AcceptChallenge", function(plyPlayer, command, args)
 	
 	if !ValidEntity(ply) || !ValidEntity(plyPlayer) then return false end
 	
-	if  os.time-tonumber(ply.Data.Challenge.Time) >= 600 and ply.Data.Challenge.Finish == false then return  end 
+	ply.Data = ply.Data or {}
+	ply.Data.Challenge = ply.Data.Challenge or {}
 	
-	if  os.time-tonumber(plyPlayer.Data.Challenge.Time) >= 600 and plyPlayer.Data.Challenge.Finish == false then return end 
+	if ply.Data.Challenge.Propose != ply then return end
+	
+	if  os.time()-tonumber(ply.Data.Challenge.Time) >= 600 and ply.Data.Challenge.Finish == false then return  end 
+	
+	if  os.time()-tonumber(plyPlayer.Data.Challenge.Time) >= 600 and plyPlayer.Data.Challenge.Finish == false then return end 
 	
 	
 	ply:AcceptChallenge(plyPlayer)
