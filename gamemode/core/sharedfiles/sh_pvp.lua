@@ -41,8 +41,24 @@ function Player:AcceptChallenge(plyInviter)
 	if !self:IsPlayer() or !plyInviter:IsPlayer() then return false end 
 	
 	self:CreateNotification("Player have accept")
+	
+	 
 	if SERVER then
 	
+	self.Data = self.Data or {}
+	self.Data.Challenge = self.Data.Challenge or {}
+	
+	self.Data.Challenge.Propose = nil
+	self.Data.Challenge.Time = os.time()
+	self.Data.Challenge.Enemy = plyInviter
+	self.Data.Challenge.Finish = false
+	
+	plyInviter.Data = plyInviter.Data or {}
+	plyInviter.Data.Challenge = plyInviter.Data.Challenge or {}
+	plyInviter.Data.Challenge.Propose = nil
+	plyInviter.Data.Challenge.Time = os.time()
+	plyInviter.Data.Challenge.Enemy = plyInviter
+	plyInviter.Data.Challenge.Finish = false
 		//SendUsrMsg("UD_UpdateInvites", self, {plyInviter, intAddRemove})
 	end
 	
