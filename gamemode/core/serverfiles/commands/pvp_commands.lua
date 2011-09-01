@@ -25,9 +25,9 @@ concommand.Add("UD_InviteChallenge", function(ply, command, args)
 	plyPlayer.Data = plyPlayer.Data or {}
 	plyPlayer.Data.Challenge = plyPlayer.Data.Challenge or {}
 	
-	if  os.time()-tonumber(ply.Data.Challenge.Time) >= 600 and ply.Data.Challenge.Finish == false then ply:CreateNotification("You are in challenge.") return end 
+	if  os.time()-tonumber(ply.Data.Challenge.Time or 0) >= 600 and ply.Data.Challenge.Finish or true == false then ply:CreateNotification("You are in challenge.") return end 
 	
-	if  os.time()-tonumber(plyPlayer.Data.Challenge.Time) >= 600 and plyPlayer.Data.Challenge.Finish == false then ply:CreateNotification("He is in challenge.") return end 
+	if  os.time()-tonumber(plyPlayer.Data.Challenge.Time or 0) >= 600 and plyPlayer.Data.Challenge.Finish or true == false then ply:CreateNotification("He is in challenge.") return end 
 	
 	
 	plyPlayer:InviteToChallenge(ply)
@@ -45,9 +45,9 @@ concommand.Add("UD_AcceptChallenge", function(plyPlayer, command, args)
 	
 	if ply.Data.Challenge.Propose != ply then return end
 	
-	if  os.time()-tonumber(ply.Data.Challenge.Time) >= 600 and ply.Data.Challenge.Finish == false then return  end 
+	if  os.time()-tonumber(ply.Data.Challenge.Time or 0 ) >= 600 and ply.Data.Challenge.Finish  or  true == false then return  end 
 	
-	if  os.time()-tonumber(plyPlayer.Data.Challenge.Time) >= 600 and plyPlayer.Data.Challenge.Finish == false then return end 
+	if  os.time()-tonumber(plyPlayer.Data.Challenge.Time or 0 ) >= 600 and plyPlayer.Data.Challenge.Finish  or true == false then return end 
 	
 	
 	ply:AcceptChallenge(plyPlayer)
